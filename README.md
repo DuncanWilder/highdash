@@ -2,15 +2,23 @@
 
 A lightweight replacement library for Lodash
 
-## Why?
+## Why does this exist?
 
-This library isn't meant to be a complete replacement for every Lodash function. It also isn't designed to cater to every situation that every function caters for.
+There are some high level goals for this library;
 
-It is designed to be a lightweight replacement for it for most cases, ignoring edge cases where it makes sense to do so.
-
-It is also designed to be easily copy-and-pasteable. This is so you can either see how the algorithm works under the hood, or copy it for yourself without needing to install another NPM dependency.
+* This library isn't meant to be a complete replacement for _every_ Lodash function
+* Each function probably isn't designed to cater to every situation that every function caters for
+* Lodash doesn't treat each function in isolation, this library does
+  * This should mean that each function should be copy-pastable
+  * This is also only achieved if each function is dependency free (even at the cost of duplication of logic)
+* Each function should use native JS functions as much as possible
+* To show that you might not need to import all of Lodash
+* A tool for learning algorithms for common tasks in JS
+* To leverage TypeScript for protection against edge cases, rather than coding for them
 
 ## Why no barrel imports?
+
+Tried using `import { someFunction } from '@duncanogle/hidash';` and got an error message?
 
 In my day-to-day job, I noticed that our tests were slow. While bundling the code for the browser tree-shook out libraries such as Lodash and our internal component library, Jest didn't do this tree-shaking. This meant that Jest was loading our entire component library (and other libraries such as Lodash) into memory for each test file, using gigabytes of memory and causing slow test.
 
@@ -232,7 +240,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Object) _.functions | ❌ |
 | (Object) _.functionsIn | ❌ |
 | (Object) _.get | ❌ |
-| (Object) _.has | ❌ |
+| (Object) _.has | import has from '@duncanogle/highdash/object/has'; |
 | (Object) _.hasIn | ❌ |
 | (Object) _.invert | ❌ |
 | (Object) _.invertBy | ❌ |
@@ -258,7 +266,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Object) _.updateWith | ❌ |
 | (Object) _.values | ❌ |
 | (Object) _.valuesIn | ❌ |
-| (String) _.camelCase | ❌ |
+| (String) _.camelCase | import camelCase from '@duncanogle/highdash/string/camelCase'; |
 | (String) _.capitalize | ❌ |
 | (String) _.deburr | ❌ |
 | (String) _.endsWith | ❌ |

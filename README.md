@@ -20,9 +20,9 @@ There are some high level goals for this library;
 
 Tried using `import { someFunction } from '@duncanogle/hidash';` and got an error message?
 
-In my day-to-day job, I noticed that our tests were slow. While bundling the code for the browser tree-shook out libraries such as Lodash and our internal component library, Jest didn't do this tree-shaking. This meant that Jest was loading our entire component library (and other libraries such as Lodash) into memory for each test file, using gigabytes of memory and causing slow test.
+While bundling the code for the browser, tree-shaking of libraries such as Lodash happens automatically. However, Jest doesn't do this tree-shaking. This means that Jest will load the entire library such as Lodash into memory for each test file, using a lot of memory and causing slow tests.
 
-Removing barrel imports halved the run time of our tests, despite the codebase increasing by 40% during the period of barrel-removal.
+In practise, removing barrel imports halved the run time of tests at my company, despite the codebase increasing by 40% during the period of barrel-removal.
 
 ## Function list
 
@@ -147,7 +147,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Function) _.wrap | ❌ |
 | (Lang) _.castArray | ❌ |
 | (Lang) _.clone | ❌ |
-| (Lang) _.cloneDeep | ❌ |
+| (Lang) _.cloneDeep | [import cloneDeep from '@duncanogle/highdash/lang/cloneDeep';](/src/lang/cloneDeep/cloneDeep.ts) |
 | (Lang) _.cloneDeepWith | ❌ |
 | (Lang) _.cloneWith | ❌ |
 | (Lang) _.conformsTo | ❌ |
@@ -163,7 +163,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Lang) _.isBuffer | ❌ |
 | (Lang) _.isDate | ❌ |
 | (Lang) _.isElement | ❌ |
-| (Lang) _.isEmpty | ❌ |
+| (Lang) _.isEmpty | [import isEmpty from '@duncanogle/highdash/lang/isEmpty';](/src/lang/isEmpty/isEmpty.ts) |
 | (Lang) _.isEqual | ❌ |
 | (Lang) _.isEqualWith | ❌ |
 | (Lang) _.isError | ❌ |

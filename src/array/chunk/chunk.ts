@@ -1,4 +1,4 @@
-export default function chunk(array: any[], chunkSize = 10) {
+export default function chunk(array: any[], chunkSize = 10): any[] {
 	const chunks = [];
 
 	for (let i = 0; i < array.length; i += chunkSize) {

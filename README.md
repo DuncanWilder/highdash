@@ -20,9 +20,9 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 
 | Function | Version exists? |
 | --- | --- |
-| (Array) _.chunk | import chunk from '@duncanogle/highdash/array/chunk' |
-| (Array) _.compact | ❌ |
-| (Array) _.concat | ❌ |
+| (Array) _.chunk | import chunk from '@duncanogle/highdash/array/chunk'; |
+| (Array) _.compact | import compact from '@duncanogle/highdash/array/compact'; |
+| (Array) _.concat | import concat from '@duncanogle/highdash/array/concat'; |
 | (Array) _.difference | ❌ |
 | (Array) _.differenceBy | ❌ |
 | (Array) _.differenceWith | ❌ |
@@ -286,7 +286,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (String) _.truncate | ❌ |
 | (String) _.unescape | ❌ |
 | (String) _.upperCase | ❌ |
-| (String) _.upperFirst | ✅ |
+| (String) _.upperFirst | import upperFirst from '@duncanogle/highdash/string/upperFirst' |
 | (String) _.words | ❌ |
 | (Util) _.attempt | ❌ |
 | (Util) _.bindAll | ❌ |

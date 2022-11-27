@@ -120,7 +120,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Collection) _.shuffle | ❌ |
 | (Collection) _.size | ❌ |
 | (Collection) _.some | ❌ |
-| (Collection) _.sortBy | ❌ |
+| (Collection) _.sortBy | [import sortBy from '@duncanogle/highdash/collection/sortBy';](/src/collection/sortBy/sortBy.ts) |
 | (Date) _.now | ❌ |
 | (Function) _.after | ❌ |
 | (Function) _.ary | ❌ |

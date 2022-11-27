@@ -28,9 +28,9 @@ In practise, removing barrel imports halved the run time of tests at my company,
 
 | Function | Version exists? |
 | --- | --- |
-| (Array) _.chunk | [import chunk from '@duncanogle/highdash/array/chunk';](/src/array/chunk/chunk.ts) |
-| (Array) _.compact | [import compact from '@duncanogle/highdash/array/compact';](src/array/compact/compact.ts) |
-| (Array) _.concat | [import concat from '@duncanogle/highdash/array/concat';](src/array/concat/concat.ts) |
+| (Array) _.chunk | [import chunk from '@duncanogle/highdash/chunk';](/src/chunk/chunk.ts) |
+| (Array) _.compact | [import compact from '@duncanogle/highdash/compact';](src/compact/compact.ts) |
+| (Array) _.concat | [import concat from '@duncanogle/highdash/concat';](src/concat/concat.ts) |
 | (Array) _.difference | ❌ |
 | (Array) _.differenceBy | ❌ |
 | (Array) _.differenceWith | ❌ |
@@ -98,7 +98,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.eachRight -> forEachRight | ❌ |
 | (Collection) _.every | ❌ |
 | (Collection) _.filter | ❌ |
-| (Collection) _.find | [import find from '@duncanogle/highdash/collection/find';](/src/collection/find/find.ts) |
+| (Collection) _.find | [import find from '@duncanogle/highdash/find';](/src/find/find.ts) |
 | (Collection) _.findLast | ❌ |
 | (Collection) _.flatMap | ❌ |
 | (Collection) _.flatMapDeep | ❌ |
@@ -106,7 +106,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.forEach | ❌ |
 | (Collection) _.forEachRight | ❌ |
 | (Collection) _.groupBy | ❌ |
-| (Collection) _.includes | [import includes from '@duncanogle/highdash/collection/includes';](/src/collection/includes/includes.ts) |
+| (Collection) _.includes | [import includes from '@duncanogle/highdash/includes';](/src/includes/includes.ts) |
 | (Collection) _.invokeMap | ❌ |
 | (Collection) _.keyBy | ❌ |
 | (Collection) _.map | ❌ |
@@ -120,7 +120,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.shuffle | ❌ |
 | (Collection) _.size | ❌ |
 | (Collection) _.some | ❌ |
-| (Collection) _.sortBy | [import sortBy from '@duncanogle/highdash/collection/sortBy';](/src/collection/sortBy/sortBy.ts) |
+| (Collection) _.sortBy | [import sortBy from '@duncanogle/highdash/sortBy';](/src/sortBy/sortBy.ts) |
 | (Date) _.now | ❌ |
 | (Function) _.after | ❌ |
 | (Function) _.ary | ❌ |
@@ -147,7 +147,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Function) _.wrap | ❌ |
 | (Lang) _.castArray | ❌ |
 | (Lang) _.clone | ❌ |
-| (Lang) _.cloneDeep | [import cloneDeep from '@duncanogle/highdash/lang/cloneDeep';](/src/lang/cloneDeep/cloneDeep.ts) |
+| (Lang) _.cloneDeep | [import cloneDeep from '@duncanogle/highdash/cloneDeep';](/src/cloneDeep/cloneDeep.ts) |
 | (Lang) _.cloneDeepWith | ❌ |
 | (Lang) _.cloneWith | ❌ |
 | (Lang) _.conformsTo | ❌ |
@@ -163,8 +163,8 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Lang) _.isBuffer | ❌ |
 | (Lang) _.isDate | ❌ |
 | (Lang) _.isElement | ❌ |
-| (Lang) _.isEmpty | [import isEmpty from '@duncanogle/highdash/lang/isEmpty';](/src/lang/isEmpty/isEmpty.ts) |
-| (Lang) _.isEqual | [import isEqual from '@duncanogle/highdash/lang/isEqual';](/src/lang/isEqual/isEqual.ts) |
+| (Lang) _.isEmpty | [import isEmpty from '@duncanogle/highdash/isEmpty';](/src/isEmpty/isEmpty.ts) |
+| (Lang) _.isEqual | [import isEqual from '@duncanogle/highdash/isEqual';](/src/isEqual/isEqual.ts) |
 | (Lang) _.isEqualWith | ❌ |
 | (Lang) _.isError | ❌ |
 | (Lang) _.isFinite | ❌ |
@@ -240,7 +240,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.functions | ❌ |
 | (Object) _.functionsIn | ❌ |
 | (Object) _.get | ❌ |
-| (Object) _.has | [import has from '@duncanogle/highdash/object/has';](/src/object/has/has.ts) |
+| (Object) _.has | [import has from '@duncanogle/highdash/has';](/src/has/has.ts) |
 | (Object) _.hasIn | ❌ |
 | (Object) _.invert | ❌ |
 | (Object) _.invertBy | ❌ |
@@ -266,13 +266,13 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.updateWith | ❌ |
 | (Object) _.values | ❌ |
 | (Object) _.valuesIn | ❌ |
-| (String) _.camelCase | [import camelCase from '@duncanogle/highdash/string/camelCase';](/src/string/camelCase/camelCase.ts) |
+| (String) _.camelCase | [import camelCase from '@duncanogle/highdash/camelCase';](/src/camelCase/camelCase.ts) |
 | (String) _.capitalize | ❌ |
 | (String) _.deburr | ❌ |
 | (String) _.endsWith | ❌ |
 | (String) _.escape | ❌ |
 | (String) _.escapeRegExp | ❌ |
-| (String) _.kebabCase | [import kebabCase from '@duncanogle/highdash/string/kebabCase';](/src/string/kebabCase/kebabCase.ts) |
+| (String) _.kebabCase | [import kebabCase from '@duncanogle/highdash/kebabCase';](/src/kebabCase/kebabCase.ts) |
 | (String) _.lowerCase | ❌ |
 | (String) _.lowerFirst | ❌ |
 | (String) _.pad | ❌ |
@@ -281,9 +281,9 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (String) _.parseInt | ❌ |
 | (String) _.repeat | ❌ |
 | (String) _.replace | ❌ |
-| (String) _.snakeCase | [import snakeCase from '@duncanogle/highdash/string/snakeCase';](/src/string/snakeCase/snakeCase.ts) |
+| (String) _.snakeCase | [import snakeCase from '@duncanogle/highdash/snakeCase';](/src/snakeCase/snakeCase.ts) |
 | (String) _.split | ❌ |
-| (String) _.startCase | [import startCase from '@duncanogle/highdash/string/startCase';](/src/string/startCase/startCase.ts) |
+| (String) _.startCase | [import startCase from '@duncanogle/highdash/startCase';](/src/startCase/startCase.ts) |
 | (String) _.startsWith | ❌ |
 | (String) _.template | ❌ |
 | (String) _.toLower | ❌ |
@@ -294,7 +294,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (String) _.truncate | ❌ |
 | (String) _.unescape | ❌ |
 | (String) _.upperCase | ❌ |
-| (String) _.upperFirst | [import upperFirst from '@duncanogle/highdash/string/upperFirst';](/src/string/upperFirst/upperFirst.ts) |
+| (String) _.upperFirst | [import upperFirst from '@duncanogle/highdash/upperFirst';](/src/upperFirst/upperFirst.ts) |
 | (String) _.words | ❌ |
 | (Util) _.attempt | ❌ |
 | (Util) _.bindAll | ❌ |
@@ -312,7 +312,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Util) _.methodOf | ❌ |
 | (Util) _.mixin | ❌ |
 | (Util) _.noConflict | ❌ |
-| (Util) _.noop | [import noop from '@duncanogle/highdash/util/noop';](/src/util/noop/noop.ts) |
+| (Util) _.noop | [import noop from '@duncanogle/highdash/noop';](/src/util/noop/noop.ts) |
 | (Util) _.nthArg | ❌ |
 | (Util) _.over | ❌ |
 | (Util) _.overEvery | ❌ |

@@ -1,8 +1,8 @@
 {
   "name": "highdash",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A lightweight replacement for Lodash",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint ./src",
     "test": "jest",

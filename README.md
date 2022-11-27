@@ -10,9 +10,17 @@ It is designed to be a lightweight replacement for it for most cases, ignoring e
 
 It is also designed to be easily copy-and-pasteable. This is so you can either see how the algorithm works under the hood, or copy it for yourself without needing to install another NPM dependency.
 
+## Why no barrel imports?
+
+In my day-to-day job, I noticed that our tests were slow. While bundling the code for the browser tree-shook out libraries such as Lodash and our internal component library, Jest didn't do this tree-shaking. This meant that Jest was loading our entire component library (and other libraries such as Lodash) into memory for each test file, using gigabytes of memory and causing slow test.
+
+Removing barrel imports halved the run time of our tests, despite the codebase increasing by 40% during the period of barrel-removal.
+
+## Function list
+
 | Function | Version exists? |
 | --- | --- |
-| (Array) _.chunk | ✅ |
+| (Array) _.chunk | import chunk from '@duncanogle/highdash/array/chunk' |
 | (Array) _.compact | ❌ |
 | (Array) _.concat | ❌ |
 | (Array) _.difference | ❌ |

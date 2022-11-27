@@ -272,7 +272,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (String) _.endsWith | ❌ |
 | (String) _.escape | ❌ |
 | (String) _.escapeRegExp | ❌ |
-| (String) _.kebabCase | ❌ |
+| (String) _.kebabCase | [import kebabCase from '@duncanogle/highdash/string/kebabCase';](/src/string/kebabCase/kebabCase.ts) |
 | (String) _.lowerCase | ❌ |
 | (String) _.lowerFirst | ❌ |
 | (String) _.pad | ❌ |
@@ -281,7 +281,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (String) _.parseInt | ❌ |
 | (String) _.repeat | ❌ |
 | (String) _.replace | ❌ |
-| (String) _.snakeCase | ❌ |
+| (String) _.snakeCase | [import snakeCase from '@duncanogle/highdash/string/snakeCase';](/src/string/snakeCase/snakeCase.ts) |
 | (String) _.split | ❌ |
 | (String) _.startCase | ❌ |
 | (String) _.startsWith | ❌ |

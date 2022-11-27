@@ -164,7 +164,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Lang) _.isDate | ❌ |
 | (Lang) _.isElement | ❌ |
 | (Lang) _.isEmpty | [import isEmpty from '@duncanogle/highdash/lang/isEmpty';](/src/lang/isEmpty/isEmpty.ts) |
-| (Lang) _.isEqual | ❌ |
+| (Lang) _.isEqual | [import isEqual from '@duncanogle/highdash/lang/isEqual';](/src/lang/isEqual/isEqual.ts) |
 | (Lang) _.isEqualWith | ❌ |
 | (Lang) _.isError | ❌ |
 | (Lang) _.isFinite | ❌ |
@@ -312,7 +312,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Util) _.methodOf | ❌ |
 | (Util) _.mixin | ❌ |
 | (Util) _.noConflict | ❌ |
-| (Util) _.noop | [import noop from '@duncanogle/highdash/string/noop';](/src/string/noop/noop.ts) |
+| (Util) _.noop | [import noop from '@duncanogle/highdash/util/noop';](/src/util/noop/noop.ts) |
 | (Util) _.nthArg | ❌ |
 | (Util) _.over | ❌ |
 | (Util) _.overEvery | ❌ |

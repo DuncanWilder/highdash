@@ -90,7 +90,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Collection) _.eachRight -> forEachRight | ❌ |
 | (Collection) _.every | ❌ |
 | (Collection) _.filter | ❌ |
-| (Collection) _.find | ❌ |
+| (Collection) _.find | import find from '@duncanogle/highdash/collection/find'; |
 | (Collection) _.findLast | ❌ |
 | (Collection) _.flatMap | ❌ |
 | (Collection) _.flatMapDeep | ❌ |
@@ -286,7 +286,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (String) _.truncate | ❌ |
 | (String) _.unescape | ❌ |
 | (String) _.upperCase | ❌ |
-| (String) _.upperFirst | import upperFirst from '@duncanogle/highdash/string/upperFirst' |
+| (String) _.upperFirst | import upperFirst from '@duncanogle/highdash/string/upperFirst'; |
 | (String) _.words | ❌ |
 | (Util) _.attempt | ❌ |
 | (Util) _.bindAll | ❌ |
@@ -304,7 +304,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Util) _.methodOf | ❌ |
 | (Util) _.mixin | ❌ |
 | (Util) _.noConflict | ❌ |
-| (Util) _.noop | ❌ |
+| (Util) _.noop | import noop from '@duncanogle/highdash/string/noop'; |
 | (Util) _.nthArg | ❌ |
 | (Util) _.over | ❌ |
 | (Util) _.overEvery | ❌ |

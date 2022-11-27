@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "rm -rf dist && tsc -p tsconfig-build.json"
   },
   "repository": {
     "type": "git",

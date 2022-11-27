@@ -106,7 +106,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (Collection) _.forEach | ❌ |
 | (Collection) _.forEachRight | ❌ |
 | (Collection) _.groupBy | ❌ |
-| (Collection) _.includes | ❌ |
+| (Collection) _.includes | [import includes from '@duncanogle/highdash/collection/includes';](/src/collection/includes/includes.ts) |
 | (Collection) _.invokeMap | ❌ |
 | (Collection) _.keyBy | ❌ |
 | (Collection) _.map | ❌ |
@@ -283,7 +283,7 @@ Removing barrel imports halved the run time of our tests, despite the codebase i
 | (String) _.replace | ❌ |
 | (String) _.snakeCase | [import snakeCase from '@duncanogle/highdash/string/snakeCase';](/src/string/snakeCase/snakeCase.ts) |
 | (String) _.split | ❌ |
-| (String) _.startCase | ❌ |
+| (String) _.startCase | [import startCase from '@duncanogle/highdash/string/startCase';](/src/string/startCase/startCase.ts) |
 | (String) _.startsWith | ❌ |
 | (String) _.template | ❌ |
 | (String) _.toLower | ❌ |

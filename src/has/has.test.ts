@@ -11,7 +11,15 @@ describe('has', () => {
 		expect(has(object, ['a', 'b'])).toEqual(true);
 	});
 
+	it('should handle aa array of missing paths', () => {
+		expect(has(object, ['d', 'c'])).toEqual(false);
+	});
+
 	it('should handle a dot-notation path', () => {
 		expect(has(object, 'a.b')).toEqual(true);
+	});
+
+	it('should handle a missing dot-notation path', () => {
+		expect(has(object, 'a.c')).toEqual(false);
 	});
 });

@@ -15,6 +15,12 @@ describe('sortBy', () => {
 				users[1], users[3], users[0], users[2],
 			]);
 		});
+
+		it('should sort the array (numbers)', () => {
+			expect(sortBy(users, (user: User) => user.age)).toEqual([
+				users[3], users[1], users[2], users[0],
+			]);
+		});
 	});
 
 	describe('object predicate', () => {

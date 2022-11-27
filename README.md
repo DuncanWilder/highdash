@@ -6,15 +6,16 @@ A lightweight replacement library for Lodash
 
 There are some high level goals for this library;
 
+* To show that you might not need to import Lodash to achieve your goals
+* A tool for learning algorithms for common tasks in JS
 * This library isn't meant to be a complete replacement for _every_ Lodash function
-* Each function probably isn't designed to cater to every situation that every function caters for
+* Each function probably isn't designed to cater to every situation that Lodash's functions cater to
 * Lodash doesn't treat each function in isolation, this library does
-  * This should mean that each function should be copy-pastable
+  * Lodash re-uses a lot of functions as helpers or uses it's own collection of helpers, obscuring what the function is actually doing
+  * This should mean that each function in this library should be copy-pastable
   * This is also only achieved if each function is dependency free (even at the cost of duplication of logic)
 * Each function should use native JS functions as much as possible
-* To show that you might not need to import all of Lodash
-* A tool for learning algorithms for common tasks in JS
-* To leverage TypeScript for protection against edge cases, rather than coding for them
+* To leverage TypeScript for protection against edge cases, rather than protecting for them in code
 
 ## Why no barrel imports?
 

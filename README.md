@@ -106,7 +106,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.flatMapDepth | ❌ |
 | (Collection) _.forEach | ❌ |
 | (Collection) _.forEachRight | ❌ |
-| (Collection) _.groupBy | ❌ |
+| (Collection) _.groupBy | [import groupBy from '@duncanogle/highdash/groupBy';](/src/groupBy/groupBy.ts) |
 | (Collection) _.includes | [import includes from '@duncanogle/highdash/includes';](/src/includes/includes.ts) |
 | (Collection) _.invokeMap | ❌ |
 | (Collection) _.keyBy | ❌ |
@@ -143,7 +143,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Function) _.rearg | ❌ |
 | (Function) _.rest | ❌ |
 | (Function) _.spread | ❌ |
-| (Function) _.throttle | ❌ |
+| (Function) _.throttle | [import throttle from '@duncanogle/highdash/throttle';](/src/throttle/throttle.ts) |
 | (Function) _.unary | ❌ |
 | (Function) _.wrap | ❌ |
 | (Lang) _.castArray | ❌ |

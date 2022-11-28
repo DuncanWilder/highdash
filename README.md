@@ -135,7 +135,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Function) _.defer | ❌ |
 | (Function) _.delay | ❌ |
 | (Function) _.flip | ❌ |
-| (Function) _.memoize | ❌ |
+| (Function) _.memoize | [import memoize from '@duncanogle/highdash/memoize';](/src/memoize/memoize.ts) |
 | (Function) _.negate | ❌ |
 | (Function) _.once | ❌ |
 | (Function) _.overArgs | ❌ |

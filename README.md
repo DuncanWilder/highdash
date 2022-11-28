@@ -7,6 +7,7 @@ A lightweight replacement library for Lodash
 There are some high level goals for this library;
 
 * To show that you might not need to import Lodash to achieve your goals
+* More feature complete than [You Don't Need Lodash/Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore), and with tests to verify/support
 * A tool for learning algorithms for common tasks in JS
 * This library isn't meant to be a complete replacement for _every_ Lodash function
 * Each function probably isn't designed to cater to every situation that Lodash's functions cater to ("good enough" rather than "perfect")

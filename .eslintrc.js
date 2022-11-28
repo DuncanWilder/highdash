@@ -21,5 +21,6 @@ module.exports = {
 		sourceType: 'module',
 	},
 	rules: {
+		radix: [0],
 	},
 };

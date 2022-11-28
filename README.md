@@ -9,7 +9,7 @@ There are some high level goals for this library;
 * To show that you might not need to import Lodash to achieve your goals
 * A tool for learning algorithms for common tasks in JS
 * This library isn't meant to be a complete replacement for _every_ Lodash function
-* Each function probably isn't designed to cater to every situation that Lodash's functions cater to
+* Each function probably isn't designed to cater to every situation that Lodash's functions cater to ("good enough" rather than "perfect")
 * Lodash doesn't treat each function in isolation, this library does
   * Lodash re-uses a lot of functions as helpers or uses it's own collection of helpers, obscuring what the function is actually doing
   * This should mean that each function in this library should be copy-pastable
@@ -120,7 +120,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.sampleSize | ❌ |
 | (Collection) _.shuffle | ❌ |
 | (Collection) _.size | ❌ |
-| (Collection) _.some | ❌ |
+| (Collection) _.some | [import some from '@duncanogle/highdash/some';](/src/some/some.ts) |
 | (Collection) _.sortBy | [import sortBy from '@duncanogle/highdash/sortBy';](/src/sortBy/sortBy.ts) |
 | (Date) _.now | ❌ |
 | (Function) _.after | ❌ |
@@ -250,11 +250,11 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.keysIn | ❌ |
 | (Object) _.mapKeys | ❌ |
 | (Object) _.mapValues | ❌ |
-| (Object) _.merge | ❌ |
+| (Object) _.merge | [import merge from '@duncanogle/highdash/merge';](/src/merge/merge.ts) |
 | (Object) _.mergeWith | ❌ |
 | (Object) _.omit | ❌ |
 | (Object) _.omitBy | ❌ |
-| (Object) _.pick | ❌ |
+| (Object) _.pick | [import pick from '@duncanogle/highdash/pick';](/src/pick/pick.ts) |
 | (Object) _.pickBy | ❌ |
 | (Object) _.result | ❌ |
 | (Object) _.set | ❌ |

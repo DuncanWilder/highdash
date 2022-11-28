@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./src",
     "test": "jest --coverage",
-    "test:watch": "jest --watchAll",
+    "test:watch": "jest --watch",
     "build": "rm -rf dist && tsc -p tsconfig-build.json"
   },
   "repository": {

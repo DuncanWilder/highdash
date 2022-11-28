@@ -43,9 +43,9 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Array) _.findIndex | ❌ |
 | (Array) _.findLastIndex | ❌ |
 | (Array) _.first -> head | ❌ |
-| (Array) _.flatten | ❌ |
-| (Array) _.flattenDeep | ❌ |
-| (Array) _.flattenDepth | ❌ |
+| (Array) _.flatten | [import flatten from '@duncanogle/highdash/flatten';](src/flatten/flatten.ts) |
+| (Array) _.flattenDeep | [import flattenDeep from '@duncanogle/highdash/flattenDeep';](src/flattenDeep/flattenDeep.ts) |
+| (Array) _.flattenDepth | [import flattenDepth from '@duncanogle/highdash/flattenDepth';](src/flattenDepth/flattenDepth.ts) |
 | (Array) _.fromPairs | ❌ |
 | (Array) _.head | ❌ |
 | (Array) _.indexOf | ❌ |

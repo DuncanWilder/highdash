@@ -33,10 +33,10 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Array) _.chunk | [import chunk from '@duncanogle/highdash/chunk';](/src/chunk/chunk.ts) |
 | (Array) _.compact | [import compact from '@duncanogle/highdash/compact';](src/compact/compact.ts) |
 | (Array) _.concat | [import concat from '@duncanogle/highdash/concat';](src/concat/concat.ts) |
-| (Array) _.difference | ❌ |
+| (Array) _.difference | [import difference from '@duncanogle/highdash/difference';](src/difference/difference.ts) |
 | (Array) _.differenceBy | ❌ |
 | (Array) _.differenceWith | ❌ |
-| (Array) _.drop | ❌ |
+| (Array) _.drop | [import drop from '@duncanogle/highdash/drop';](src/drop/drop.ts) |
 | (Array) _.dropRight | ❌ |
 | (Array) _.dropRightWhile | ❌ |
 | (Array) _.dropWhile | ❌ |
@@ -314,7 +314,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Util) _.methodOf | ❌ |
 | (Util) _.mixin | ❌ |
 | (Util) _.noConflict | ❌ |
-| (Util) _.noop | [import noop from '@duncanogle/highdash/noop';](/src/util/noop/noop.ts) |
+| (Util) _.noop | [import noop from '@duncanogle/highdash/noop';](/src/noop/noop.ts) |
 | (Util) _.nthArg | ❌ |
 | (Util) _.over | ❌ |
 | (Util) _.overEvery | ❌ |

@@ -39,6 +39,8 @@ const lodashSizesGzipped = {
 	cloneDeep: 5300,
 	compact: 437,
 	concat: 1100,
+	difference: 3300,
+	drop: 1300,
 	find: 6700,
 	flatten: 1000,
 	flattenDeep: 1000,

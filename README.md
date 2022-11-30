@@ -137,7 +137,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Function) _.flip | ❌ |
 | (Function) _.memoize | [import memoize from '@duncanogle/highdash/memoize';](/src/memoize/memoize.ts) |
 | (Function) _.negate | ❌ |
-| (Function) _.once | ❌ |
+| (Function) _.once | [import once from '@duncanogle/highdash/once';](/src/once/once.ts) |
 | (Function) _.overArgs | ❌ |
 | (Function) _.partial | ❌ |
 | (Function) _.partialRight | ❌ |

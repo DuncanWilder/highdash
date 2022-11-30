@@ -37,7 +37,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Array) _.differenceBy | ❌ |
 | (Array) _.differenceWith | ❌ |
 | (Array) _.drop | [import drop from '@duncanogle/highdash/drop';](src/drop/drop.ts) |
-| (Array) _.dropRight | ❌ |
+| (Array) _.dropRight | [import drop from '@duncanogle/highdash/dropRight';](src/dropRight/dropRight.ts) |
 | (Array) _.dropRightWhile | ❌ |
 | (Array) _.dropWhile | ❌ |
 | (Array) _.fill | ❌ |

@@ -1,9 +1,9 @@
-export default function difference<T>(
-	firstArray: T[],
-	secondArray: T[],
-): T[] {
+export default function difference<PassedArrayType>(
+	firstArray: PassedArrayType[],
+	secondArray: PassedArrayType[],
+): PassedArrayType[] {
 	return [
 		firstArray,
 		secondArray,
-	].reduce((a, b) => a.filter((c: T) => !b.includes(c)));
+	].reduce((a, b) => a.filter((c: PassedArrayType) => !b.includes(c)));
 }

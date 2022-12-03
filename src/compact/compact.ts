@@ -1,3 +1,3 @@
-export default function compact(array: any[]): any[] {
+export default function compact<PassedArrayType>(array: PassedArrayType[]): PassedArrayType[] {
 	return array.filter(item => Boolean(item));
 }

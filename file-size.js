@@ -5,8 +5,8 @@ const {readdirSync} = require('fs');
 
 function getDirectories(source) {
 	return readdirSync(source, {withFileTypes: true})
-		.filter(dirent => dirent.isDirectory())
-		.map(dirent => dirent.name);
+		.filter((directoryOrFile) => directoryOrFile.isDirectory())
+		.map((directory) => directory.name);
 }
 
 function humanFileSize(bytes, si = false, dp = 1) {

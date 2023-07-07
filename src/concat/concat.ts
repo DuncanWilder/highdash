@@ -1,15 +1,16 @@
-export default function concat<PassedArrayType>(array: PassedArrayType[], ...args: PassedArrayType[]): PassedArrayType[] {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-	const result: PassedArrayType[] = [...array];
+const concat = <PassedArrayType>(array: PassedArrayType | PassedArrayType[], ...args: (PassedArrayType | PassedArrayType[])[]): PassedArrayType[] => {
+  const result: PassedArrayType[] = Array.isArray(array) ? [...array] : [array];
 
-	args.forEach(item => {
-		if (Array.isArray(item)) {
-			item.forEach(e => result.push(e));
-			return;
-		}
+  args.forEach(item => {
+    if (Array.isArray(item)) {
+      item.forEach(e => result.push(e));
+      return;
+    }
 
-		result.push(item);
-	});
+    result.push(item);
+  });
 
-	return result;
-}
+  return result;
+};
+
+export default concat;

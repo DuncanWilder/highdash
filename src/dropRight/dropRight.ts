@@ -1,4 +1,4 @@
-export default function dropRight<T>(array: T[], numberToDrop = 1): T[] {
+export default function dropRight<PassedArrayType>(array: PassedArrayType[], numberToDrop = 1): PassedArrayType[] {
 	if (numberToDrop === 0) {
 		return array;
 	}

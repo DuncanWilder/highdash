@@ -1,52 +1,49 @@
 # highdash
 
-A lightweight replacement library for Lodash
+A lightweight replacement for Lodash
 
 ## Why does this exist?
 
-There are some high level goals for this library;
+There are some high level goals for this repo;
 
 * To show that you might not need to import Lodash to achieve your goals
 * More feature complete than [You Don't Need Lodash/Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore), and with tests to verify/support
-* A tool for learning algorithms for common tasks in JS
-* This library isn't meant to be a complete replacement for _every_ Lodash function
-* Each function probably isn't designed to cater to every situation that Lodash's functions cater to ("good enough" rather than "perfect")
-* Lodash doesn't treat each function in isolation, this library does
+* A method for me to learn how some of these functions actually work
+* This isn't meant to be a complete replacement for _every_ Lodash function
+* Each function probably isn't designed to cater to every situation that Lodash does ("good enough" rather than "perfect")
+* Lodash doesn't treat each function in isolation, this library does for easy copy & pasting
   * Lodash re-uses a lot of functions as helpers or uses it's own collection of helpers, obscuring what the function is actually doing
-  * This should mean that each function in this library should be copy-pastable
+  * This should mean that each function in this library should be copy-pasteable
   * This is also only achieved if each function is dependency free (even at the cost of duplication of logic)
-* Each function should use native JS functions as much as possible
 * To leverage TypeScript for protection against edge cases, rather than protecting for them in code
 
 ## Why no barrel imports?
 
-Tried using `import { someFunction } from '@duncanogle/hidash';` and got an error message?
+While bundling the code for the browser, tree-shaking of libraries such as Lodash happens automatically. However, testing frameworks such as Jest don't do this tree-shaking by design. This means that Jest will load the entire library (such as Lodash) into memory for each test file, using a lot of memory and causing slower tests.
 
-While bundling the code for the browser, tree-shaking of libraries such as Lodash happens automatically. However, Jest doesn't do this tree-shaking. This means that Jest will load the entire library such as Lodash into memory for each test file, using a lot of memory and causing slow tests.
-
-In practise, removing barrel imports halved the run time of tests at my company, despite the codebase increasing by 40% during the period of barrel-removal.
+In practise, removing barrel imports halved the run time of tests at my company despite the codebase increasing in size by 40%.
 
 ## Function list
 
 | Function | Version exists? |
 | --- | --- |
-| (Array) _.chunk | [import chunk from '@duncanogle/highdash/chunk';](/src/chunk/chunk.ts) |
-| (Array) _.compact | [import compact from '@duncanogle/highdash/compact';](src/compact/compact.ts) |
-| (Array) _.concat | [import concat from '@duncanogle/highdash/concat';](src/concat/concat.ts) |
-| (Array) _.difference | [import difference from '@duncanogle/highdash/difference';](src/difference/difference.ts) |
-| (Array) _.differenceBy | [import difference from '@duncanogle/highdash/differenceBy';](src/differenceBy/differenceBy.ts) |
-| (Array) _.differenceWith | [import difference from '@duncanogle/highdash/differenceWith';](src/differenceWith/differenceWith.ts) |
-| (Array) _.drop | [import drop from '@duncanogle/highdash/drop';](src/drop/drop.ts) |
-| (Array) _.dropRight | [import drop from '@duncanogle/highdash/dropRight';](src/dropRight/dropRight.ts) |
+| (Array) _.chunk | [/src/chunk/chunk.ts](/src/chunk/chunk.ts) |
+| (Array) _.compact | [/src/compact/compact.ts](src/compact/compact.ts) |
+| (Array) _.concat | [/src/concat/concat.ts](src/concat/concat.ts) |
+| (Array) _.difference | [/src/difference/difference.ts](src/difference/difference.ts) |
+| (Array) _./differenceBy | [/src/differenceBy/differenceBy.ts](src/differenceBy/differenceBy.ts) |
+| (Array) _./differenceWith | [/src/differenceWith/differenceWith.ts](src/differenceWith/differenceWith.ts) |
+| (Array) _.drop | [/src/drop/drop.ts](src/drop/drop.ts) |
+| (Array) _.dropRight | [/src/dropRight/dropRight.ts](src/dropRight/dropRight.ts) |
 | (Array) _.dropRightWhile | ❌ |
 | (Array) _.dropWhile | ❌ |
 | (Array) _.fill | ❌ |
 | (Array) _.findIndex | ❌ |
 | (Array) _.findLastIndex | ❌ |
 | (Array) _.first -> head | ❌ |
-| (Array) _.flatten | [import flatten from '@duncanogle/highdash/flatten';](src/flatten/flatten.ts) |
-| (Array) _.flattenDeep | [import flattenDeep from '@duncanogle/highdash/flattenDeep';](src/flattenDeep/flattenDeep.ts) |
-| (Array) _.flattenDepth | [import flattenDepth from '@duncanogle/highdash/flattenDepth';](src/flattenDepth/flattenDepth.ts) |
+| (Array) _.flatten | [/src/flatten/flatten.ts](src/flatten/flatten.ts) |
+| (Array) _.flattenDeep | [/src/flattenDeep/flattenDeep.ts](src/flattenDeep/flattenDeep.ts) |
+| (Array) _./flattenDepth | [/src/flattenDepth/flattenDepth.ts](src/flattenDepth/flattenDepth.ts) |
 | (Array) _.fromPairs | ❌ |
 | (Array) _.head | ❌ |
 | (Array) _.indexOf | ❌ |
@@ -100,15 +97,15 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.eachRight -> forEachRight | ❌ |
 | (Collection) _.every | ❌ |
 | (Collection) _.filter | ❌ |
-| (Collection) _.find | [import find from '@duncanogle/highdash/find';](/src/find/find.ts) |
+| (Collection) _.find | [/src/find/find.ts](/src/find/find.ts) |
 | (Collection) _.findLast | ❌ |
 | (Collection) _.flatMap | ❌ |
 | (Collection) _.flatMapDeep | ❌ |
 | (Collection) _.flatMapDepth | ❌ |
 | (Collection) _.forEach | ❌ |
 | (Collection) _.forEachRight | ❌ |
-| (Collection) _.groupBy | [import groupBy from '@duncanogle/highdash/groupBy';](/src/groupBy/groupBy.ts) |
-| (Collection) _.includes | [import includes from '@duncanogle/highdash/includes';](/src/includes/includes.ts) |
+| (Collection) _.groupBy | [/src/groupBy/groupBy.ts](/src/groupBy/groupBy.ts) |
+| (Collection) _.includes | [/src/includes/includes.ts](/src/includes/includes.ts) |
 | (Collection) _.invokeMap | ❌ |
 | (Collection) _.keyBy | ❌ |
 | (Collection) _.map | ❌ |
@@ -121,8 +118,8 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Collection) _.sampleSize | ❌ |
 | (Collection) _.shuffle | ❌ |
 | (Collection) _.size | ❌ |
-| (Collection) _.some | [import some from '@duncanogle/highdash/some';](/src/some/some.ts) |
-| (Collection) _.sortBy | [import sortBy from '@duncanogle/highdash/sortBy';](/src/sortBy/sortBy.ts) |
+| (Collection) _.some | [/src/some/some.ts](/src/some/some.ts) |
+| (Collection) _.sortBy | [/src/sortBy/sortBy.ts](/src/sortBy/sortBy.ts) |
 | (Date) _.now | ❌ |
 | (Function) _.after | ❌ |
 | (Function) _.ary | ❌ |
@@ -135,21 +132,21 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Function) _.defer | ❌ |
 | (Function) _.delay | ❌ |
 | (Function) _.flip | ❌ |
-| (Function) _.memoize | [import memoize from '@duncanogle/highdash/memoize';](/src/memoize/memoize.ts) |
+| (Function) _.memoize | [/src/memoize/memoize.ts](/src/memoize/memoize.ts) |
 | (Function) _.negate | ❌ |
-| (Function) _.once | [import once from '@duncanogle/highdash/once';](/src/once/once.ts) |
+| (Function) _.once | [/src/once/once.ts](/src/once/once.ts) |
 | (Function) _.overArgs | ❌ |
 | (Function) _.partial | ❌ |
 | (Function) _.partialRight | ❌ |
 | (Function) _.rearg | ❌ |
 | (Function) _.rest | ❌ |
 | (Function) _.spread | ❌ |
-| (Function) _.throttle | [import throttle from '@duncanogle/highdash/throttle';](/src/throttle/throttle.ts) |
+| (Function) _.throttle | [/src/throttle/throttle.ts](/src/throttle/throttle.ts) |
 | (Function) _.unary | ❌ |
 | (Function) _.wrap | ❌ |
 | (Lang) _.castArray | ❌ |
 | (Lang) _.clone | ❌ |
-| (Lang) _.cloneDeep | [import cloneDeep from '@duncanogle/highdash/cloneDeep';](/src/cloneDeep/cloneDeep.ts) |
+| (Lang) _.cloneDeep | [/src/cloneDeep/cloneDeep.ts](/src/cloneDeep/cloneDeep.ts) |
 | (Lang) _.cloneDeepWith | ❌ |
 | (Lang) _.cloneWith | ❌ |
 | (Lang) _.conformsTo | ❌ |
@@ -165,8 +162,8 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Lang) _.isBuffer | ❌ |
 | (Lang) _.isDate | ❌ |
 | (Lang) _.isElement | ❌ |
-| (Lang) _.isEmpty | [import isEmpty from '@duncanogle/highdash/isEmpty';](/src/isEmpty/isEmpty.ts) |
-| (Lang) _.isEqual | [import isEqual from '@duncanogle/highdash/isEqual';](/src/isEqual/isEqual.ts) |
+| (Lang) _.isEmpty | [/src/isEmpty/isEmpty.ts](/src/isEmpty/isEmpty.ts) |
+| (Lang) _.isEqual | [/src/isEqual/isEqual.ts](/src/isEqual/isEqual.ts) |
 | (Lang) _.isEqualWith | ❌ |
 | (Lang) _.isError | ❌ |
 | (Lang) _.isFinite | ❌ |
@@ -242,7 +239,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.functions | ❌ |
 | (Object) _.functionsIn | ❌ |
 | (Object) _.get | ❌ |
-| (Object) _.has | [import has from '@duncanogle/highdash/has';](/src/has/has.ts) |
+| (Object) _.has | [/src/has/has.ts](/src/has/has.ts) |
 | (Object) _.hasIn | ❌ |
 | (Object) _.invert | ❌ |
 | (Object) _.invertBy | ❌ |
@@ -251,11 +248,11 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.keysIn | ❌ |
 | (Object) _.mapKeys | ❌ |
 | (Object) _.mapValues | ❌ |
-| (Object) _.merge | [import merge from '@duncanogle/highdash/merge';](/src/merge/merge.ts) |
+| (Object) _.merge | [/src/merge/merge.ts](/src/merge/merge.ts) |
 | (Object) _.mergeWith | ❌ |
 | (Object) _.omit | ❌ |
 | (Object) _.omitBy | ❌ |
-| (Object) _.pick | [import pick from '@duncanogle/highdash/pick';](/src/pick/pick.ts) |
+| (Object) _.pick | [/src/pick/pick.ts](/src/pick/pick.ts) |
 | (Object) _.pickBy | ❌ |
 | (Object) _.result | ❌ |
 | (Object) _.set | ❌ |
@@ -268,13 +265,13 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Object) _.updateWith | ❌ |
 | (Object) _.values | ❌ |
 | (Object) _.valuesIn | ❌ |
-| (String) _.camelCase | [import camelCase from '@duncanogle/highdash/camelCase';](/src/camelCase/camelCase.ts) |
+| (String) _.camelCase | [/src/camelCase/camelCase.ts](/src/camelCase/camelCase.ts) |
 | (String) _.capitalize | ❌ |
 | (String) _.deburr | ❌ |
 | (String) _.endsWith | ❌ |
 | (String) _.escape | ❌ |
 | (String) _.escapeRegExp | ❌ |
-| (String) _.kebabCase | [import kebabCase from '@duncanogle/highdash/kebabCase';](/src/kebabCase/kebabCase.ts) |
+| (String) _.kebabCase | [/src/kebabCase/kebabCase.ts](/src/kebabCase/kebabCase.ts) |
 | (String) _.lowerCase | ❌ |
 | (String) _.lowerFirst | ❌ |
 | (String) _.pad | ❌ |
@@ -283,9 +280,9 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (String) _.parseInt | ❌ |
 | (String) _.repeat | ❌ |
 | (String) _.replace | ❌ |
-| (String) _.snakeCase | [import snakeCase from '@duncanogle/highdash/snakeCase';](/src/snakeCase/snakeCase.ts) |
+| (String) _.snakeCase | [/src/snakeCase/snakeCase.ts](/src/snakeCase/snakeCase.ts) |
 | (String) _.split | ❌ |
-| (String) _.startCase | [import startCase from '@duncanogle/highdash/startCase';](/src/startCase/startCase.ts) |
+| (String) _.startCase | [/src/startCase/startCase.ts](/src/startCase/startCase.ts) |
 | (String) _.startsWith | ❌ |
 | (String) _.template | ❌ |
 | (String) _.toLower | ❌ |
@@ -296,7 +293,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (String) _.truncate | ❌ |
 | (String) _.unescape | ❌ |
 | (String) _.upperCase | ❌ |
-| (String) _.upperFirst | [import upperFirst from '@duncanogle/highdash/upperFirst';](/src/upperFirst/upperFirst.ts) |
+| (String) _.upperFirst | [/src/upperFirst/upperFirst.ts](/src/upperFirst/upperFirst.ts) |
 | (String) _.words | ❌ |
 | (Util) _.attempt | ❌ |
 | (Util) _.bindAll | ❌ |
@@ -314,7 +311,7 @@ In practise, removing barrel imports halved the run time of tests at my company,
 | (Util) _.methodOf | ❌ |
 | (Util) _.mixin | ❌ |
 | (Util) _.noConflict | ❌ |
-| (Util) _.noop | [import noop from '@duncanogle/highdash/noop';](/src/noop/noop.ts) |
+| (Util) _.noop | [/src/noop/noop.ts](/src/noop/noop.ts) |
 | (Util) _.nthArg | ❌ |
 | (Util) _.over | ❌ |
 | (Util) _.overEvery | ❌ |

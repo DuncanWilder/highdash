@@ -1,1 +1,1 @@
-export {default} from './differenceBy';
+export { default } from "./differenceBy";

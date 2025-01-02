@@ -1,1 +1,1 @@
-export {default} from './flatten';
+export { default } from "./flatten";

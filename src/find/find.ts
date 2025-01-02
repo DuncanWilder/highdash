@@ -1,3 +1,4 @@
+// biome-ignore lint/suspicious/noExplicitAny: any is correct here
 type CollectionType = Record<string, any> | string | number;
 
 /**
@@ -6,40 +7,50 @@ type CollectionType = Record<string, any> | string | number;
  */
 export default function find(
 	collection: CollectionType[],
-	predicate: ((item: any) => boolean) | Record<string, unknown> | string | number,
+	predicate:
+		| ((item: CollectionType) => boolean)
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		| Record<string, any>
+		| string
+		| number,
 	fromIndex = 0,
 ): CollectionType | undefined {
-	if (typeof predicate === 'function') {
-		return collection.find(predicate);
+	if (typeof predicate === "function") {
+		return collection.find(predicate as (value: CollectionType, index: number, obj: CollectionType[]) => unknown);
 	}
 
-	const hasBasicArrayBeenPassed = typeof collection[0] === 'string' || typeof collection[0] === 'number';
-	if (hasBasicArrayBeenPassed && typeof predicate !== 'function') {
-		return collection.find(item => item === predicate);
+	const hasBasicArrayBeenPassed =
+		typeof collection[0] === "string" || typeof collection[0] === "number";
+	if (hasBasicArrayBeenPassed && typeof predicate !== "function") {
+		return collection.find((item) => item === predicate);
 	}
 
-	if (typeof predicate === 'object') {
-		return collection.find(collectionItem => {
+	if (typeof predicate === "object") {
+		return collection.find((collectionItem) => {
 			let hasBeenFound = true;
 
-			Object.entries(predicate).forEach(([key, value]: [string, unknown]) => {
+			for (const [key, value] of Object.entries(predicate)) {
 				if (hasBasicArrayBeenPassed && collectionItem !== value) {
 					hasBeenFound = false;
-					return;
+					break;
 				}
 
-				if (typeof collectionItem === 'object' && collectionItem[key] !== value) {
+				if (
+					typeof collectionItem === "object" &&
+					collectionItem[key] !== value
+				) {
 					hasBeenFound = false;
+					break;
 				}
-			});
+			}
 
 			return hasBeenFound;
 		});
 	}
 
-	if (typeof predicate === 'string') {
-		return collection.find(collectionItem => {
-			if (typeof collectionItem === 'object') {
+	if (typeof predicate === "string") {
+		return collection.find((collectionItem) => {
+			if (typeof collectionItem === "object") {
 				return Boolean(collectionItem[predicate]);
 			}
 

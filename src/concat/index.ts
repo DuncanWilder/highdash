@@ -1,1 +1,1 @@
-export {default} from './concat';
+export { default } from "./concat";

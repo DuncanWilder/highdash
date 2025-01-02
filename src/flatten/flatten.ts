@@ -1,4 +1,4 @@
-export default function flatten<XX>(arrayToFlatten: XX[] | XX[][]): XX[] {
+export default function flatten<T>(arrayToFlatten: T[] | T[][]): T[] {
 	// @ts-expect-error
 	return arrayToFlatten.flat();
 }

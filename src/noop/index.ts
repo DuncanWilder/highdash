@@ -1,1 +1,1 @@
-export {default} from './noop';
+export { default } from "./noop";

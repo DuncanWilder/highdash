@@ -1,30 +1,35 @@
-import groupBy from './groupBy';
+import { it, describe, expect } from 'vitest';
+import groupBy from "./groupBy";
 
-describe('groupBy', () => {
-	it('should groupBy 2 objects together', () => {
-		// eslint-disable-next-line @typescript-eslint/naming-convention
-		expect(groupBy([6.1, 4.2, 6.3], Math.floor)).toEqual({4: [4.2], 6: [6.1, 6.3]});
+describe("groupBy", () => {
+	it("should groupBy 2 objects together", () => {
+		expect(groupBy([6.1, 4.2, 6.3], Math.floor)).toEqual({
+			4: [4.2],
+			6: [6.1, 6.3],
+		});
 
-		// eslint-disable-next-line @typescript-eslint/naming-convention
-		expect(groupBy(['one', 'two', 'three'], 'length')).toEqual({3: ['one', 'two'], 5: ['three']});
+		expect(groupBy(["one", "two", "three"], "length")).toEqual({
+			3: ["one", "two"],
+			5: ["three"],
+		});
 	});
 
-	it('should group objects by a string', () => {
-		type User = {name: string; age: number};
+	it("should group objects by a string", () => {
+		type User = { name: string; age: number };
 		const users: User[] = [
-			{name: 'fred', age: 48},
-			{name: 'barney', age: 36},
-			{name: 'fred', age: 40},
-			{name: 'barney', age: 34},
+			{ name: "fred", age: 48 },
+			{ name: "barney", age: 36 },
+			{ name: "fred", age: 40 },
+			{ name: "barney", age: 34 },
 		];
-		expect(groupBy(users, 'name')).toEqual({
+		expect(groupBy(users, "name")).toEqual({
 			fred: [
-				{name: 'fred', age: 48},
-				{name: 'fred', age: 40},
+				{ name: "fred", age: 48 },
+				{ name: "fred", age: 40 },
 			],
 			barney: [
-				{name: 'barney', age: 36},
-				{name: 'barney', age: 34},
+				{ name: "barney", age: 36 },
+				{ name: "barney", age: 34 },
 			],
 		});
 	});

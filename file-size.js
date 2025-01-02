@@ -1,7 +1,7 @@
-const util = require('util');
+const util = require('node:util');
 const chalk = require('chalk');
-const exec = util.promisify(require('child_process').exec);
-const {readdirSync} = require('fs');
+const exec = util.promisify(require('node:child_process').exec);
+const {readdirSync} = require('node:fs');
 
 function getDirectories(source) {
 	return readdirSync(source, {withFileTypes: true})
@@ -13,7 +13,7 @@ function humanFileSize(bytes, si = false, dp = 1) {
 	const thresh = si ? 1000 : 1024;
 
 	if (Math.abs(bytes) < thresh) {
-		return bytes + ' B';
+		return `${bytes} B`;
 	}
 
 	const units = si
@@ -23,11 +23,12 @@ function humanFileSize(bytes, si = false, dp = 1) {
 	const r = 10 ** dp;
 
 	do {
+		// biome-ignore lint/style/noParameterAssign: I copied and pasted this code
 		bytes /= thresh;
 		++u;
 	} while (Math.round(Math.abs(bytes) * r) / r >= thresh && u < units.length - 1);
 
-	return bytes.toFixed(dp) + ' ' + units[u];
+	return `${bytes.toFixed(dp)} ${units[u]}`;
 }
 
 /**
@@ -71,8 +72,7 @@ async function main() {
 	let totalSize = 0;
 	let amountSaved = 0;
 	for (const directory of directories) {
-		// eslint-disable-next-line no-await-in-loop
-		const gzipSizeInBytes = parseInt(await (await exec(`gzip -c ./dist/${directory}/${directory}.js | wc -c`)).stdout.trim());
+		const gzipSizeInBytes = Number.parseInt(await (await exec(`gzip -c ./dist/${directory}/${directory}.js | wc -c`)).stdout.trim());
 		totalSize += gzipSizeInBytes;
 		const paddedFileName = `${directory} `.padEnd(25, '-');
 		const fileSize = chalk.yellow(humanFileSize(gzipSizeInBytes));

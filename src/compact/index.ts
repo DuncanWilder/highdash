@@ -1,1 +1,1 @@
-export {default} from './compact';
+export { default } from "./compact";

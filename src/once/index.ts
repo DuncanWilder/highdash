@@ -1,1 +1,1 @@
-export {default} from './once';
+export { default } from "./once";

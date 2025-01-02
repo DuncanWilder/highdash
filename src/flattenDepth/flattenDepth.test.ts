@@ -1,7 +1,8 @@
-import flattenDepth from './flattenDepth';
+import { it, describe, expect } from 'vitest';
+import flattenDepth from "./flattenDepth";
 
-describe('flattenDepth', () => {
-	it('should flattenDepth an array by the specified number of levels', () => {
+describe("flattenDepth", () => {
+	it("should flattenDepth an array by the specified number of levels", () => {
 		const array = [1, [2, [3, [4]], 5]];
 
 		expect(flattenDepth(array)).toEqual([1, 2, [3, [4]], 5]);

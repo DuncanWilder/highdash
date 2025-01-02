@@ -1,1 +1,1 @@
-export {default} from './dropRight';
+export { default } from "./dropRight";

@@ -1,1 +1,1 @@
-export {default} from './groupBy';
+export { default } from "./groupBy";

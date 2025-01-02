@@ -1,8 +1,10 @@
-export default function once<T>(functionToCall: (...onceArguments: any) => T): () => T {
+export default function once<T>(
+	functionToCall: (...onceArguments: unknown[]) => T,
+): () => T {
 	let hasBeenCalled = false;
 	let result: T;
 
-	return function<P>(...functionToCallArguments: P[]) {
+	return function <P>(...functionToCallArguments: P[]) {
 		if (hasBeenCalled) {
 			return result;
 		}

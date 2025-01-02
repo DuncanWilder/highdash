@@ -1,1 +1,1 @@
-export {default} from './startCase';
+export { default } from "./startCase";

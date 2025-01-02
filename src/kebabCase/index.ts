@@ -1,1 +1,1 @@
-export {default} from './kebabCase';
+export { default } from "./kebabCase";

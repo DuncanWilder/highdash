@@ -1,1 +1,1 @@
-export {default} from './chunk';
+export { default } from "./chunk";

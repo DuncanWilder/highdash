@@ -1,1 +1,1 @@
-export {default} from './flattenDepth';
+export { default } from "./flattenDepth";

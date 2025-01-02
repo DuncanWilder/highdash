@@ -1,9 +1,10 @@
-import memoize from './memoize';
-import _memoize from 'lodash/memoize';
+import { it, describe, expect, vi } from 'vitest';
+import memoize from "./memoize";
+import _memoize from "lodash/memoize";
 
-describe('memoize', () => {
-	it('should upper case the first letter of a sentence', () => {
-		const mock = jest.fn();
+describe("memoize", () => {
+	it("should upper case the first letter of a sentence", () => {
+		const mock = vi.fn();
 		const factorial = memoize((x: number): number => {
 			mock();
 			if (x === 0) {
@@ -20,8 +21,8 @@ describe('memoize', () => {
 		expect(mock).toHaveBeenCalledTimes(6);
 	});
 
-	it('should match the lodash implementation', () => {
-		const mock = jest.fn();
+	it("should match the lodash implementation", () => {
+		const mock = vi.fn();
 		const factorial = _memoize((x: number): number => {
 			mock();
 			if (x === 0) {

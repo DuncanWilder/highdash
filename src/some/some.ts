@@ -1,15 +1,29 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-type CollectionType = Record<string, unknown> | string | number | null | boolean;
-type PredicateType = Record<string, unknown> | ((item: any) => boolean) | string;
+type CollectionType =
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+| Record<string, any>
+| string
+| number
+| null
+| boolean;
+type PredicateType =
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+| Record<string, any>
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+| ((item: any) => boolean)
+| string;
 
-export default function some(collection: CollectionType[], predicate: PredicateType): boolean {
-	if (typeof predicate === 'function') {
-		return collection.some(predicate);
+export default function some(
+	collection: CollectionType[],
+	predicate: PredicateType,
+): boolean {
+	if (typeof predicate === "function") {
+		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+		return collection.some(predicate as (item: any) => boolean);
 	}
 
-	if (typeof predicate === 'string') {
-		return collection.some(item => {
-			if (typeof item !== 'object') {
+	if (typeof predicate === "string") {
+		return collection.some((item) => {
+			if (typeof item !== "object") {
 				return false;
 			}
 
@@ -17,20 +31,19 @@ export default function some(collection: CollectionType[], predicate: PredicateT
 		});
 	}
 
-	if (typeof predicate === 'object') {
-		return collection.some(collectionItem => {
+	if (typeof predicate === "object") {
+		return collection.some((collectionItem) => {
 			let hasBeenFound = true;
 
-			Object.entries(predicate).forEach(([key, value]: [string, unknown]) => {
-				// If (hasBasicArrayBeenPassed && collectionItem !== value) {
-				// 	hasBeenFound = false;
-				// 	return;
-				// }
-
-				if (typeof collectionItem === 'object' && collectionItem?.[key] !== value) {
+			for (const [key, value] of Object.entries(predicate)) {
+				if (
+					typeof collectionItem === "object" &&
+					collectionItem?.[key] !== value
+				) {
 					hasBeenFound = false;
+					break;
 				}
-			});
+			}
 
 			return hasBeenFound;
 		});

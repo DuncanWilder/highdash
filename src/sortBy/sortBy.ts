@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 type CollectionType = Record<string, any>;
 
 /**
@@ -7,16 +7,17 @@ type CollectionType = Record<string, any>;
  */
 export default function sortBy(
 	collection: CollectionType[],
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	predicate: ((item: any) => string | number) | string[],
-): CollectionType | undefined {
+): CollectionType[] | undefined {
 	const clonedArray: CollectionType[] = JSON.parse(JSON.stringify(collection));
 
-	if (typeof predicate === 'function') {
+	if (typeof predicate === "function") {
 		clonedArray.sort((a, b) => {
 			const aa = predicate(a);
 			const bb = predicate(b);
 
-			if (typeof aa === 'string' && typeof bb === 'string') {
+			if (typeof aa === "string" && typeof bb === "string") {
 				return aa.localeCompare(bb);
 			}
 
@@ -27,14 +28,18 @@ export default function sortBy(
 		return clonedArray;
 	}
 
-	return clonedArray.sort((a, b) => predicate.map(fieldToSortBy => {
-		const aa = a[fieldToSortBy];
-		const bb = b[fieldToSortBy];
+	return clonedArray.sort((a, b) =>
+		predicate
+			.map((fieldToSortBy) => {
+				const aa = a[fieldToSortBy];
+				const bb = b[fieldToSortBy];
 
-		if (typeof aa === 'string' && typeof bb === 'string') {
-			return aa.localeCompare(bb);
-		}
+				if (typeof aa === "string" && typeof bb === "string") {
+					return aa.localeCompare(bb);
+				}
 
-		return aa - bb;
-	}).reduce((p, n) => p ? p : n, 0));
+				return aa - bb;
+			})
+			.reduce((p, n) => (p ? p : n), 0),
+	);
 }

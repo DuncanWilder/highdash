@@ -1,11 +1,12 @@
-import startCase from './startCase';
+import { it, describe, expect } from 'vitest';
+import startCase from "./startCase";
 
-describe('startCase', () => {
+describe("startCase", () => {
 	it.each([
-		['--foo-bar--', 'Foo Bar'],
-		['fooBar', 'Foo Bar'],
-		['__FOO_BAR__', 'FOO BAR'],
-	])('should %s to %s', (input, expectedResult) => {
+		["--foo-bar--", "Foo Bar"],
+		["fooBar", "Foo Bar"],
+		["__FOO_BAR__", "FOO BAR"],
+	])("should %s to %s", (input, expectedResult) => {
 		expect(startCase(input)).toEqual(expectedResult);
 	});
 });

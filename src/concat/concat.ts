@@ -1,16 +1,21 @@
-const concat = <PassedArrayType>(array: PassedArrayType | PassedArrayType[], ...args: (PassedArrayType | PassedArrayType[])[]): PassedArrayType[] => {
-  const result: PassedArrayType[] = Array.isArray(array) ? [...array] : [array];
+const concat = <PassedArrayType>(
+	array: PassedArrayType | PassedArrayType[],
+	...args: (PassedArrayType | PassedArrayType[])[]
+): PassedArrayType[] => {
+	const result: PassedArrayType[] = Array.isArray(array) ? [...array] : [array];
 
-  args.forEach(item => {
-    if (Array.isArray(item)) {
-      item.forEach(e => result.push(e));
-      return;
-    }
+	for (const item of args) {
+		if (Array.isArray(item)) {
+			for (const e of item) {
+				result.push(e);
+			}
+			continue;
+		}
 
-    result.push(item);
-  });
+		result.push(item);
+	}
 
-  return result;
+	return result;
 };
 
 export default concat;

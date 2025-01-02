@@ -1,15 +1,22 @@
-type PredicateType = string | (<T>(value: T, index: number, array: T[]) => string) | ((x: number) => number);
+type PredicateType =
+	| string
+	| (<T>(value: T, index: number, array: T[]) => string)
+	| ((x: number) => number);
 
 export default function groupBy<T>(array: T[], predicate: PredicateType) {
 	return array.reduce<Record<string, T[]>>((acc, value, index, array) => {
-		if (typeof predicate === 'string') {
+		if (typeof predicate === "string") {
 			// @ts-expect-error
-			(acc[value[predicate]] ||= []).push(value);
+			const key = value[predicate];
+			acc[key] = acc[key] || [];
+			acc[key].push(value);
 			return acc;
 		}
 
 		// @ts-expect-error
-		(acc[predicate(value, index, array)] ||= []).push(value);
+		const key = predicate(value, index, array);
+		acc[key] = acc[key] || [];
+		acc[key].push(value);
 		return acc;
 	}, {});
 }

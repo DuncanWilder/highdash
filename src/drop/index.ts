@@ -1,1 +1,1 @@
-export {default} from './drop';
+export { default } from "./drop";

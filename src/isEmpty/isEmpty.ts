@@ -3,7 +3,11 @@ export default function isEmpty(itemToCheck: unknown): boolean {
 		return !itemToCheck.length;
 	}
 
-	if (typeof itemToCheck === 'object' && itemToCheck !== null && Object.keys(itemToCheck).length) {
+	if (
+		typeof itemToCheck === "object" &&
+		itemToCheck !== null &&
+		Object.keys(itemToCheck).length
+	) {
 		return false;
 	}
 

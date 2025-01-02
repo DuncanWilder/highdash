@@ -1,11 +1,11 @@
-type CollectionType = Record<string, any> | Array<number | string> | string;
+type CollectionType = Record<string, unknown> | Array<number | string> | string;
 
 export default function includes(
 	collection: CollectionType,
 	valueToFind: string | number,
 	fromIndex = 0,
 ): boolean {
-	if (typeof collection === 'string') {
+	if (typeof collection === "string") {
 		return collection.includes(`${valueToFind}`);
 	}
 
@@ -14,10 +14,10 @@ export default function includes(
 	}
 
 	let hasBeenFound = false;
-	Object.values(collection).forEach(value => {
+	for (const value of Object.values(collection)) {
 		if (value === valueToFind) {
 			hasBeenFound = true;
 		}
-	});
+	}
 	return hasBeenFound;
 }

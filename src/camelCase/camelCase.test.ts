@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import camelCase from "./camelCase";
 import _camelCase from "lodash/camelCase";
 

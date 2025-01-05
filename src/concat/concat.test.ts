@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import concat from "./concat";
 
 describe("concat", () => {

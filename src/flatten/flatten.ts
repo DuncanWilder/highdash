@@ -1,4 +1,5 @@
-export default function flatten<T>(arrayToFlatten: T[] | T[][]): T[] {
-	// @ts-expect-error
-	return arrayToFlatten.flat();
+export default function flatten<PassedArrayType>(
+	arrayToFlatten: PassedArrayType[],
+): PassedArrayType[] {
+	return arrayToFlatten.flat() as PassedArrayType[];
 }

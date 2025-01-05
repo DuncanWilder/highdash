@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import dropRight from "./dropRight";
 import _dropRight from "lodash/dropRight";
 

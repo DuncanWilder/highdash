@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import includes from "./includes";
 
 describe("includes", () => {
@@ -18,7 +18,7 @@ describe("includes", () => {
 		expect(includes("abcd", "bc")).toEqual(true);
 	});
 
-	// It('should allow us to specify a "startIndex"', () => {
+	// It('should allow us to specify a "fromIndex"', () => {
 	// 	expect(includes([1, 2, 3], 1, 2)).toEqual(false);
 	// });
 });

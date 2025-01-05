@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import has from "./has";
 
 describe("has", () => {
@@ -12,7 +12,7 @@ describe("has", () => {
 		expect(has(object, ["a", "b"])).toEqual(true);
 	});
 
-	it("should handle aa array of missing paths", () => {
+	it("should handle an array of missing paths", () => {
 		expect(has(object, ["d", "c"])).toEqual(false);
 	});
 

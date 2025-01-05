@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import drop from "./drop";
 import _drop from "lodash/drop";
 

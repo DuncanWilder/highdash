@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import difference from "./difference";
 import _difference from "lodash/difference";
 

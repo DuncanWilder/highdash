@@ -1,7 +1,5 @@
-type CollectionType = Record<string, unknown> | Array<number | string> | string;
-
-export default function includes(
-	collection: CollectionType,
+export default function includes<CollectionType>(
+	collection: CollectionType | Array<number | string> | string,
 	valueToFind: string | number,
 	fromIndex = 0,
 ): boolean {
@@ -14,7 +12,7 @@ export default function includes(
 	}
 
 	let hasBeenFound = false;
-	for (const value of Object.values(collection)) {
+	for (const value of Object.values(collection as Record<string, unknown>)) {
 		if (value === valueToFind) {
 			hasBeenFound = true;
 		}

@@ -1,6 +1,6 @@
-export default function flattenDeep(
-	arrayToFlatten: unknown[],
+export default function flattenDeep<PassedArrayType>(
+	arrayToFlatten: PassedArrayType[],
 	depth = 1,
-): unknown[] {
-	return arrayToFlatten.flat(depth);
+): PassedArrayType[] {
+	return arrayToFlatten.flat(depth) as PassedArrayType[];
 }

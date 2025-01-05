@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import chunk from "./chunk";
 import _chunk from "lodash/chunk";
 

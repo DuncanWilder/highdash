@@ -1,13 +1,13 @@
-export default function has(
-	object: Record<string, unknown>,
+export default function has<ObjectType>(
+	object: ObjectType,
 	path: string | string[],
 ): boolean {
 	const searchKeys = typeof path === "string" ? path.split(".") : path;
 
 	// Deep-clone an object to avoid mutation by reference
-	let copiedObject: Record<string, unknown> = JSON.parse(
+	let copiedObject: ObjectType = JSON.parse(
 		JSON.stringify(object),
-	) as Record<string, unknown>;
+	) as ObjectType;
 
 	for (const searchKey of searchKeys) {
 		// @ts-expect-error We're forcing types here to iterate through this object

@@ -1,4 +1,5 @@
-export default function flattenDeep<TT>(arrayToFlatten: TT[] | TT[][]): TT[] {
-	// @ts-expect-error
-	return arrayToFlatten.flat(Number.POSITIVE_INFINITY);
+export default function flattenDeep<PassedArrayType>(
+	arrayToFlatten: PassedArrayType[],
+): PassedArrayType[] {
+	return arrayToFlatten.flat(Number.POSITIVE_INFINITY) as PassedArrayType[];
 }

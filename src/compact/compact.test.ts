@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import compact from "./compact";
 import _compact from "lodash/compact";
 

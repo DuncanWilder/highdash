@@ -1,4 +1,4 @@
-import { it, describe, expect } from 'vitest';
+import { it, describe, expect } from "vitest";
 import flattenDepth from "./flattenDepth";
 
 describe("flattenDepth", () => {

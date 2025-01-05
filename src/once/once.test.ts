@@ -1,4 +1,4 @@
-import { it, describe, expect, vi } from 'vitest';
+import { it, describe, expect, vi } from "vitest";
 import once from "./once";
 import _once from "lodash/once";
 

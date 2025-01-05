@@ -1,10 +1,18 @@
-export default function pick(
-	target: Record<string, unknown>,
+export default function pick<PassedItem extends Record<string, unknown>>(
+	target: PassedItem,
 	desiredKeys: string | string[],
-): Record<string, unknown> {
+): Partial<PassedItem> {
 	const keysToPick = Array.isArray(desiredKeys) ? desiredKeys : [desiredKeys];
 
-	const toReturn: Record<string, unknown> = {};
+	// biome-ignore lint/suspicious/noExplicitAny: Types are hard, any is fine for now
+	const toReturn: any = {};
+
+	const isValidObject =
+		typeof target === "object" && !Array.isArray(target) && target !== null;
+
+	if (!isValidObject) {
+		return toReturn;
+	}
 
 	for (const key of keysToPick) {
 		if (key in target) {

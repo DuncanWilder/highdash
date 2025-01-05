@@ -1,16 +1,12 @@
 type CollectionType =
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-| Record<string, any>
-| string
-| number
-| null
-| boolean;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	Record<string, any> | string | number | null | boolean;
 type PredicateType =
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-| Record<string, any>
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-| ((item: any) => boolean)
-| string;
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	| Record<string, any>
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	| ((item: any) => boolean)
+	| string;
 
 export default function some(
 	collection: CollectionType[],

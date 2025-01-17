@@ -31,8 +31,8 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Array) _.compact | [/src/compact/compact.ts](src/compact/compact.ts) |
 | (Array) _.concat | [/src/concat/concat.ts](src/concat/concat.ts) |
 | (Array) _.difference | [/src/difference/difference.ts](src/difference/difference.ts) |
-| (Array) _./differenceBy | [/src/differenceBy/differenceBy.ts](src/differenceBy/differenceBy.ts) |
-| (Array) _./differenceWith | [/src/differenceWith/differenceWith.ts](src/differenceWith/differenceWith.ts) |
+| (Array) _.differenceBy | [/src/differenceBy/differenceBy.ts](src/differenceBy/differenceBy.ts) |
+| (Array) _.differenceWith | [/src/differenceWith/differenceWith.ts](src/differenceWith/differenceWith.ts) |
 | (Array) _.drop | [/src/drop/drop.ts](src/drop/drop.ts) |
 | (Array) _.dropRight | [/src/dropRight/dropRight.ts](src/dropRight/dropRight.ts) |
 | (Array) _.dropRightWhile | ❌ |
@@ -43,7 +43,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Array) _.first -> head | ❌ |
 | (Array) _.flatten | [/src/flatten/flatten.ts](src/flatten/flatten.ts) |
 | (Array) _.flattenDeep | [/src/flattenDeep/flattenDeep.ts](src/flattenDeep/flattenDeep.ts) |
-| (Array) _./flattenDepth | [/src/flattenDepth/flattenDepth.ts](src/flattenDepth/flattenDepth.ts) |
+| (Array) _.flattenDepth | [/src/flattenDepth/flattenDepth.ts](src/flattenDepth/flattenDepth.ts) |
 | (Array) _.fromPairs | ❌ |
 | (Array) _.head | ❌ |
 | (Array) _.indexOf | ❌ |
@@ -97,7 +97,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Collection) _.eachRight -> forEachRight | ❌ |
 | (Collection) _.every | ❌ |
 | (Collection) _.filter | ❌ |
-| (Collection) _.find | [/src/find/find.ts](/src/find/find.ts) |
+| (Collection) _.find | ❌ |
 | (Collection) _.findLast | ❌ |
 | (Collection) _.flatMap | ❌ |
 | (Collection) _.flatMapDeep | ❌ |

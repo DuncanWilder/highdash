@@ -1,6 +1,6 @@
-import { it, describe, expect, vi } from "vitest";
-import memoize from "./memoize";
 import _memoize from "lodash/memoize";
+import { describe, expect, it, vi } from "vitest";
+import memoize from "./memoize";
 
 describe("memoize", () => {
 	it("should upper case the first letter of a sentence", () => {

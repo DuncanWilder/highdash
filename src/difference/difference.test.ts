@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import difference from "./difference";
 import _difference from "lodash/difference";
+import { describe, expect, it } from "vitest";
+import difference from "./difference";
 
 describe("difference", () => {
 	it("should remove different values from passed arrays", () => {

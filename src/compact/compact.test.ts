@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import compact from "./compact";
 import _compact from "lodash/compact";
+import { describe, expect, it } from "vitest";
+import compact from "./compact";
 
 describe("compact", () => {
 	it("should remove falsy values from an array", () => {

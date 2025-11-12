@@ -4,10 +4,7 @@
   "description": "A lightweight replacement for Lodash",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "biome lint ./src",
-    "lint:fix": "biome lint --fix ./src",
-    "format": "biome format ./src",
-    "format:fix": "biome format --fix ./src",
+    "lint": "biome check  --write ./src",
     "test": "vitest run --coverage",
     "test:watch": "vitest",
     "build": "rm -rf dist && tsc -p tsconfig-build.json && node ./file-size.js",
@@ -15,23 +12,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DuncanOgle/highdash.git"
+    "url": "git+https://github.com/DuncanWilder/highdash.git"
   },
-  "author": "Duncan Ogle",
+  "author": "Duncan Wilder",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/DuncanOgle/highdash/issues"
+    "url": "https://github.com/DuncanWilder/highdash/issues"
   },
-  "homepage": "https://github.com/DuncanOgle/highdash#readme",
+  "homepage": "https://github.com/DuncanWilder/highdash#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@types/lodash": "4.17.16",
-    "@vitest/coverage-istanbul": "3.1.2",
+    "@biomejs/biome": "2.3.5",
+    "@types/lodash": "4.17.20",
+    "@vitest/coverage-istanbul": "4.0.8",
     "chalk": "4.1.2",
-    "globals": "16.0.0",
+    "globals": "16.5.0",
     "lodash": "4.17.21",
     "ts-node": "10.9.2",
-    "typescript": "5.8.3",
-    "vitest": "3.1.2"
+    "typescript": "5.9.3",
+    "vitest": "4.0.8"
   }
 }

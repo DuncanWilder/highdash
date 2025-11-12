@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import dropRight from "./dropRight";
 import _dropRight from "lodash/dropRight";
+import { describe, expect, it } from "vitest";
+import dropRight from "./dropRight";
 
 describe("dropRight", () => {
 	it("should remove different values from passed arrays", () => {

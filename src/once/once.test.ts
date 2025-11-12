@@ -1,6 +1,6 @@
-import { it, describe, expect, vi } from "vitest";
-import once from "./once";
 import _once from "lodash/once";
+import { describe, expect, it, vi } from "vitest";
+import once from "./once";
 
 describe("once", () => {
 	it("should remove falsy values from an array", () => {

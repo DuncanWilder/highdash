@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import cloneDeep from "./cloneDeep";
 import _cloneDeep from "lodash/cloneDeep";
+import { describe, expect, it } from "vitest";
+import cloneDeep from "./cloneDeep";
 
 describe("cloneDeep", () => {
 	it("should deep clone an object", () => {

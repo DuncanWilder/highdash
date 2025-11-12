@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import camelCase from "./camelCase";
 import _camelCase from "lodash/camelCase";
+import { describe, expect, it } from "vitest";
+import camelCase from "./camelCase";
 
 describe("camelCase", () => {
 	it("should upper case the first letter of a sentence", () => {

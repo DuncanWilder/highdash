@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import drop from "./drop";
 import _drop from "lodash/drop";
+import { describe, expect, it } from "vitest";
+import drop from "./drop";
 
 describe("drop", () => {
 	it("should remove different values from passed arrays", () => {

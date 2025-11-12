@@ -1,6 +1,6 @@
-import { it, describe, expect } from "vitest";
-import chunk from "./chunk";
 import _chunk from "lodash/chunk";
+import { describe, expect, it } from "vitest";
+import chunk from "./chunk";
 
 describe("chunk", () => {
 	const chunkable = [

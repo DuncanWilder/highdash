@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import differenceWith from "./differenceWith";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import differenceWith from "#src/differenceWith/differenceWith";
 
 describe("differenceWith", () => {
 	it("returns the difference between two arrays based on the comparator function", () => {
@@ -7,7 +8,7 @@ describe("differenceWith", () => {
 		const array2 = [{ x: 2 }];
 		const comparator = (a: { x: number }, b: { x: number }) => a.x === b.x;
 
-		expect(differenceWith(array1, array2, comparator)).toEqual([
+		assert.deepStrictEqual(differenceWith(array1, array2, comparator), [
 			{ x: 1 },
 			{ x: 3 },
 		]);
@@ -18,7 +19,7 @@ describe("differenceWith", () => {
 		const array2: number[] = [];
 		const comparator = (a: number, b: number) => a === b;
 
-		expect(differenceWith(array1, array2, comparator)).toEqual([1, 2, 3]);
+		assert.deepStrictEqual(differenceWith(array1, array2, comparator), [1, 2, 3]);
 	});
 
 	it("returns an empty array if the first array is empty", () => {
@@ -26,7 +27,7 @@ describe("differenceWith", () => {
 		const array2 = [1, 2, 3];
 		const comparator = (a: number, b: number) => a === b;
 
-		expect(differenceWith(array1, array2, comparator)).toEqual([]);
+		assert.deepStrictEqual(differenceWith(array1, array2, comparator), []);
 	});
 
 	it("returns an empty array if both arrays are empty", () => {
@@ -34,6 +35,6 @@ describe("differenceWith", () => {
 		const array2: number[] = [];
 		const comparator = (a: number, b: number) => a === b;
 
-		expect(differenceWith(array1, array2, comparator)).toEqual([]);
+		assert.deepStrictEqual(differenceWith(array1, array2, comparator), []);
 	});
 });

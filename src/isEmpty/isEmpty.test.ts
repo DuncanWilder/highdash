@@ -1,15 +1,18 @@
-import { describe, expect, it } from "vitest";
-import isEmpty from "./isEmpty";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import isEmpty from "#src/isEmpty/isEmpty";
 
 describe("isEmpty", () => {
-	it.each([
+	for (const [input, expectedResult] of [
 		[null, true],
 		[true, true],
 		[1, true],
 		[[1, 2, 3], false],
 		[[], true],
 		[{ a: 1 }, false],
-	])("should %s to %s", (input, expectedResult) => {
-		expect(isEmpty(input)).toEqual(expectedResult);
-	});
+	] as const) {
+		it(`should map ${JSON.stringify(input)} to ${expectedResult}`, () => {
+			assert.deepStrictEqual(isEmpty(input), expectedResult);
+		});
+	}
 });

@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import sortBy from "./sortBy";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import sortBy from "#src/sortBy/sortBy";
 
 describe("sortBy", () => {
 	type User = { name: string; age: number };
@@ -12,7 +13,7 @@ describe("sortBy", () => {
 
 	describe("function predicate", () => {
 		it("should sort the array", () => {
-			expect(sortBy(users, (user: User) => user.name)).toEqual([
+			assert.deepStrictEqual(sortBy(users, (user: User) => user.name), [
 				users[1],
 				users[3],
 				users[0],
@@ -21,7 +22,7 @@ describe("sortBy", () => {
 		});
 
 		it("should sort the array (numbers)", () => {
-			expect(sortBy(users, (user: User) => user.age)).toEqual([
+			assert.deepStrictEqual(sortBy(users, (user: User) => user.age), [
 				users[3],
 				users[1],
 				users[2],
@@ -32,7 +33,7 @@ describe("sortBy", () => {
 
 	describe("object predicate", () => {
 		it("should sort the array", () => {
-			expect(sortBy(users, ["name", "age"])).toEqual([
+			assert.deepStrictEqual(sortBy(users, ["name", "age"]), [
 				users[3],
 				users[1],
 				users[2],

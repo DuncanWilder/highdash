@@ -1,24 +1,25 @@
-import { describe, expect, it } from "vitest";
-import includes from "./includes";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import includes from "#src/includes/includes";
 
 describe("includes", () => {
 	it("should find a number in an array of numbers", () => {
-		expect(includes([1, 2, 3], 1)).toEqual(true);
+		assert.deepStrictEqual(includes([1, 2, 3], 1), true);
 	});
 
 	it("should find a string in an array of strings", () => {
-		expect(includes(["1", "2", "3"], "1")).toEqual(true);
+		assert.deepStrictEqual(includes(["1", "2", "3"], "1"), true);
 	});
 
 	it("find an object containing the passed value", () => {
-		expect(includes({ a: 1, b: 2 }, 1)).toEqual(true);
+		assert.deepStrictEqual(includes({ a: 1, b: 2 }, 1), true);
 	});
 
 	it("should find a substring in a string", () => {
-		expect(includes("abcd", "bc")).toEqual(true);
+		assert.deepStrictEqual(includes("abcd", "bc"), true);
 	});
 
 	// It('should allow us to specify a "fromIndex"', () => {
-	// 	expect(includes([1, 2, 3], 1, 2)).toEqual(false);
+	// 	assert.deepStrictEqual(includes([1, 2, 3], 1, 2), false);
 	// });
 });

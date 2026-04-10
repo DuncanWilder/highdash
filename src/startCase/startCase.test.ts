@@ -1,12 +1,15 @@
-import { describe, expect, it } from "vitest";
-import startCase from "./startCase";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import startCase from "#src/startCase/startCase";
 
 describe("startCase", () => {
-	it.each([
+	for (const [input, expectedResult] of [
 		["--foo-bar--", "Foo Bar"],
 		["fooBar", "Foo Bar"],
 		["__FOO_BAR__", "FOO BAR"],
-	])("should %s to %s", (input, expectedResult) => {
-		expect(startCase(input)).toEqual(expectedResult);
-	});
+	] as const) {
+		it(`should map ${input} to ${expectedResult}`, () => {
+			assert.deepStrictEqual(startCase(input), expectedResult);
+		});
+	}
 });

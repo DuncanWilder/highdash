@@ -1,14 +1,15 @@
-import { describe, expect, it } from "vitest";
-import groupBy from "./groupBy";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import groupBy from "#src/groupBy/groupBy";
 
 describe("groupBy", () => {
 	it("should groupBy 2 objects together", () => {
-		expect(groupBy([6.1, 4.2, 6.3], Math.floor)).toEqual({
+		assert.deepStrictEqual(groupBy([6.1, 4.2, 6.3], Math.floor), {
 			4: [4.2],
 			6: [6.1, 6.3],
 		});
 
-		expect(groupBy(["one", "two", "three"], "length")).toEqual({
+		assert.deepStrictEqual(groupBy(["one", "two", "three"], "length"), {
 			3: ["one", "two"],
 			5: ["three"],
 		});
@@ -22,7 +23,7 @@ describe("groupBy", () => {
 			{ name: "fred", age: 40 },
 			{ name: "barney", age: 34 },
 		];
-		expect(groupBy(users, "name")).toEqual({
+		assert.deepStrictEqual(groupBy(users, "name"), {
 			fred: [
 				{ name: "fred", age: 48 },
 				{ name: "fred", age: 40 },

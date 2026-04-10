@@ -1,13 +1,14 @@
-import { describe, expect, it } from "vitest";
-import round from "./round";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import round from "#src/round/round";
 
 describe("round", () => {
 	it("should round to a whole number by default", () => {
-		expect(round(4.006)).toEqual(4);
+		assert.deepStrictEqual(round(4.006), 4);
 	});
 
 	it("should allow a precision value", () => {
-		expect(round(4.006, 2)).toEqual(4.01);
+		assert.deepStrictEqual(round(4.006, 2), 4.01);
 	});
 
 	it.todo("should allow negative rounding");

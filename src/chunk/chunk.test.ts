@@ -1,6 +1,7 @@
-import _chunk from "lodash/chunk";
-import { describe, expect, it } from "vitest";
-import chunk from "./chunk";
+import lodash from "lodash";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import chunk from "#src/chunk/chunk";
 
 describe("chunk", () => {
 	const chunkable = [
@@ -10,24 +11,24 @@ describe("chunk", () => {
 	it("should chunk arrays", () => {
 		const result = chunk(chunkable);
 
-		expect(result).toHaveLength(3);
-		expect(result[0]).toHaveLength(10);
-		expect(result[1]).toHaveLength(10);
-		expect(result[2]).toHaveLength(1);
+		assert.strictEqual(result.length, 3);
+		assert.strictEqual(result[0].length, 10);
+		assert.strictEqual(result[1].length, 10);
+		assert.strictEqual(result[2].length, 1);
 	});
 
 	it("should allow different chunk numbers", () => {
 		const result = chunk(chunkable, 5);
 
-		expect(result).toHaveLength(5);
-		expect(result[0]).toHaveLength(5);
-		expect(result[1]).toHaveLength(5);
-		expect(result[2]).toHaveLength(5);
-		expect(result[3]).toHaveLength(5);
-		expect(result[4]).toHaveLength(1);
+		assert.strictEqual(result.length, 5);
+		assert.strictEqual(result[0].length, 5);
+		assert.strictEqual(result[1].length, 5);
+		assert.strictEqual(result[2].length, 5);
+		assert.strictEqual(result[3].length, 5);
+		assert.strictEqual(result[4].length, 1);
 	});
 
 	it("should match the lodash implementation", () => {
-		expect(chunk(chunkable, 5)).toEqual(_chunk(chunkable, 5));
+		assert.deepStrictEqual(chunk(chunkable, 5), lodash.chunk(chunkable, 5));
 	});
 });

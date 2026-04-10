@@ -1,10 +1,11 @@
-import _memoize from "lodash/memoize";
-import { describe, expect, it, vi } from "vitest";
-import memoize from "./memoize";
+import lodash from "lodash";
+import assert from "node:assert/strict";
+import { describe, it, mock as testMock } from "node:test";
+import memoize from "#src/memoize/memoize";
 
 describe("memoize", () => {
 	it("should upper case the first letter of a sentence", () => {
-		const mock = vi.fn();
+		const mock = testMock.fn();
 		const factorial = memoize((x: number): number => {
 			mock();
 			if (x === 0) {
@@ -15,15 +16,15 @@ describe("memoize", () => {
 		});
 
 		factorial(5);
-		expect(mock).toHaveBeenCalledTimes(6);
+		assert.strictEqual(mock.mock.callCount(), 6);
 
 		factorial(5);
-		expect(mock).toHaveBeenCalledTimes(6);
+		assert.strictEqual(mock.mock.callCount(), 6);
 	});
 
 	it("should match the lodash implementation", () => {
-		const mock = vi.fn();
-		const factorial = _memoize((x: number): number => {
+		const mock = testMock.fn();
+		const factorial = lodash.memoize((x: number): number => {
 			mock();
 			if (x === 0) {
 				return 1;
@@ -33,9 +34,9 @@ describe("memoize", () => {
 		});
 
 		factorial(5);
-		expect(mock).toHaveBeenCalledTimes(6);
+		assert.strictEqual(mock.mock.callCount(), 6);
 
 		factorial(5);
-		expect(mock).toHaveBeenCalledTimes(6);
+		assert.strictEqual(mock.mock.callCount(), 6);
 	});
 });

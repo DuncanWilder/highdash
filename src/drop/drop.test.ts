@@ -1,19 +1,20 @@
-import _drop from "lodash/drop";
-import { describe, expect, it } from "vitest";
-import drop from "./drop";
+import lodash from "lodash";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import drop from "#src/drop/drop";
 
 describe("drop", () => {
 	it("should remove different values from passed arrays", () => {
-		expect(drop([1, 2, 3])).toEqual([2, 3]);
-		expect(drop([1, 2, 3], 2)).toEqual([3]);
-		expect(drop([1, 2, 3], 5)).toEqual([]);
-		expect(drop([1, 2, 3], 0)).toEqual([1, 2, 3]);
+		assert.deepStrictEqual(drop([1, 2, 3]), [2, 3]);
+		assert.deepStrictEqual(drop([1, 2, 3], 2), [3]);
+		assert.deepStrictEqual(drop([1, 2, 3], 5), []);
+		assert.deepStrictEqual(drop([1, 2, 3], 0), [1, 2, 3]);
 	});
 
 	it("should match the lodash implementation", () => {
-		expect(drop([1, 2, 3])).toEqual(_drop([1, 2, 3]));
-		expect(drop([1, 2, 3], 2)).toEqual(_drop([1, 2, 3], 2));
-		expect(drop([1, 2, 3], 5)).toEqual(_drop([1, 2, 3], 5));
-		expect(drop([1, 2, 3], 0)).toEqual(_drop([1, 2, 3], 0));
+		assert.deepStrictEqual(drop([1, 2, 3]), lodash.drop([1, 2, 3]));
+		assert.deepStrictEqual(drop([1, 2, 3], 2), lodash.drop([1, 2, 3], 2));
+		assert.deepStrictEqual(drop([1, 2, 3], 5), lodash.drop([1, 2, 3], 5));
+		assert.deepStrictEqual(drop([1, 2, 3], 0), lodash.drop([1, 2, 3], 0));
 	});
 });

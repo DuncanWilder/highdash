@@ -1,10 +1,11 @@
-import { describe, expect, it } from "vitest";
-import kebabCase from "./kebabCase";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import kebabCase from "#src/kebabCase/kebabCase";
 
 describe("kebabCase", () => {
 	it("should upper case the first letter of a sentence", () => {
-		expect(kebabCase("Foo Bar")).toEqual("foo-bar");
-		expect(kebabCase("fooBar")).toEqual("foo-bar");
-		expect(kebabCase("__FOO_BAR__")).toEqual("foo-bar");
+		assert.deepStrictEqual(kebabCase("Foo Bar"), "foo-bar");
+		assert.deepStrictEqual(kebabCase("fooBar"), "foo-bar");
+		assert.deepStrictEqual(kebabCase("__FOO_BAR__"), "foo-bar");
 	});
 });

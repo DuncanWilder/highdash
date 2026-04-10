@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import some from "./some";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import some from "#src/some/some";
 
 interface User {
 	name: string;
@@ -17,18 +18,18 @@ describe("some", () => {
 	// // => true
 
 	it("should work for an array of primitives", () => {
-		expect(some([null, 0, "yes", false], Boolean)).toEqual(true);
+		assert.deepStrictEqual(some([null, 0, "yes", false], Boolean), true);
 	});
 
 	it("should work for a collection of objects", () => {
-		expect(some(users, (user: User) => user.name === "barney")).toEqual(true);
+		assert.deepStrictEqual(some(users, (user: User) => user.name === "barney"), true);
 	});
 
 	it("should handle an object predicate", () => {
-		expect(some(users, { name: "barney", active: false })).toEqual(false);
+		assert.deepStrictEqual(some(users, { name: "barney", active: false }), false);
 	});
 
 	it("should handle an string predicate", () => {
-		expect(some(users, "active")).toEqual(true);
+		assert.deepStrictEqual(some(users, "active"), true);
 	});
 });

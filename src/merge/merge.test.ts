@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
-import merge from "./merge";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import merge from "#src/merge/merge";
 
 describe("merge", () => {
 	const object = {
@@ -11,7 +12,7 @@ describe("merge", () => {
 	};
 
 	it("should merge 2 objects together", () => {
-		expect(merge(object, other)).toEqual({
+		assert.deepStrictEqual(merge(object, other), {
 			a: [
 				{ b: 2, c: 3 },
 				{ d: 4, e: 5 },

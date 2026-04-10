@@ -1,8 +1,9 @@
-import { describe, expect, it } from "vitest";
-import flattenDeep from "./flattenDeep";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import flattenDeep from "#src/flattenDeep/flattenDeep";
 
 describe("flattenDeep", () => {
 	it("should flattenDeep an array by infinite levels", () => {
-		expect(flattenDeep([1, [2, [3, [4]], 5]])).toEqual([1, 2, 3, 4, 5]);
+		assert.deepStrictEqual(flattenDeep([1, [2, [3, [4]], 5]]), [1, 2, 3, 4, 5]);
 	});
 });

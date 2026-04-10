@@ -1,26 +1,27 @@
-import { describe, expect, it } from "vitest";
-import has from "./has";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import has from "#src/has/has";
 
 describe("has", () => {
 	const object = { a: { b: 2 } };
 
 	it("should detect if an object has the path", () => {
-		expect(has(object, "a")).toEqual(true);
+		assert.deepStrictEqual(has(object, "a"), true);
 	});
 
 	it("should handle an array of paths", () => {
-		expect(has(object, ["a", "b"])).toEqual(true);
+		assert.deepStrictEqual(has(object, ["a", "b"]), true);
 	});
 
 	it("should handle an array of missing paths", () => {
-		expect(has(object, ["d", "c"])).toEqual(false);
+		assert.deepStrictEqual(has(object, ["d", "c"]), false);
 	});
 
 	it("should handle a dot-notation path", () => {
-		expect(has(object, "a.b")).toEqual(true);
+		assert.deepStrictEqual(has(object, "a.b"), true);
 	});
 
 	it("should handle a missing dot-notation path", () => {
-		expect(has(object, "a.c")).toEqual(false);
+		assert.deepStrictEqual(has(object, "a.c"), false);
 	});
 });

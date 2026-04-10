@@ -1,19 +1,22 @@
-import _difference from "lodash/difference";
-import { describe, expect, it } from "vitest";
-import difference from "./difference";
+import lodash from "lodash";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import difference from "#src/difference/difference";
 
 describe("difference", () => {
 	it("should remove different values from passed arrays", () => {
 		const result = difference([2, 1], [2, 3]);
 
-		expect(result).toHaveLength(1);
-		expect(result).toEqual([1]);
+		assert.strictEqual(result.length, 1);
+		assert.deepStrictEqual(result, [1]);
 	});
 
 	it("should match the lodash implementation", () => {
-		expect(difference([2, 1], [2, 3])).toEqual(_difference([2, 1], [2, 3]));
-		expect(difference([1, 2, 3, 4, 5], [5, 2, 10])).toEqual(
-			_difference([1, 3, 4]),
+		assert.deepStrictEqual(difference([2, 1], [2, 3]), 
+			lodash.difference([2, 1], [2, 3]),
+		);
+		assert.deepStrictEqual(difference([1, 2, 3, 4, 5], [5, 2, 10]), 
+			lodash.difference([1, 3, 4]),
 		);
 	});
 });

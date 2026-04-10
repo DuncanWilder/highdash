@@ -1,6 +1,7 @@
-import _cloneDeep from "lodash/cloneDeep";
-import { describe, expect, it } from "vitest";
-import cloneDeep from "./cloneDeep";
+import lodash from "lodash";
+import assert from "node:assert/strict";
+import { describe, it } from "node:test";
+import cloneDeep from "#src/cloneDeep/cloneDeep";
 
 describe("cloneDeep", () => {
 	it("should deep clone an object", () => {
@@ -12,16 +13,20 @@ describe("cloneDeep", () => {
 				},
 			},
 		};
-		expect(cloneDeep(original)).toEqual(original);
-		expect(cloneDeep(original)).not.toBe(original);
-		expect(cloneDeep(original).b).not.toBe(original.b);
-		expect(cloneDeep(original).b.c).not.toBe(original.b.c);
+		const cloned = cloneDeep(original);
+
+		assert.deepStrictEqual(cloned, original);
+		assert.notStrictEqual(cloned, original);
+		assert.notStrictEqual(cloned.b, original.b);
+		assert.notStrictEqual(cloned.b.c, original.b.c);
 	});
 
 	it("should deep clone an array object", () => {
 		const original = [{ a: 1 }, { b: 2 }];
-		expect(cloneDeep(original)).toEqual(original);
-		expect(cloneDeep(original)).not.toBe(original);
+		const cloned = cloneDeep(original);
+
+		assert.deepStrictEqual(cloned, original);
+		assert.notStrictEqual(cloned, original);
 	});
 
 	it("should match the lodash implementation", () => {
@@ -33,6 +38,6 @@ describe("cloneDeep", () => {
 				},
 			},
 		};
-		expect(cloneDeep(original)).toEqual(_cloneDeep(original));
+		assert.deepStrictEqual(cloneDeep(original), lodash.cloneDeep(original));
 	});
 });

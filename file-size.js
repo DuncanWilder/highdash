@@ -1,7 +1,26 @@
-const util = require('node:util');
-const chalk = require('chalk');
-const exec = util.promisify(require('node:child_process').exec);
-const {readdirSync} = require('node:fs');
+import { exec as execCallback } from "node:child_process";
+import { readdirSync } from "node:fs";
+import { promisify } from "node:util";
+
+const exec = promisify(execCallback);
+
+const ANSI_STYLES = {
+	reset: '\u001B[0m',
+	red: '\u001B[31m',
+	green: '\u001B[32m',
+	yellow: '\u001B[33m',
+};
+
+const forceColor = process.env.FORCE_COLOR;
+const coloursEnabled = forceColor === '0'
+	? false
+	: forceColor !== undefined
+		? true
+		: Boolean(process.stdout.isTTY) && process.env.NO_COLOR === undefined && process.env.NODE_DISABLE_COLORS !== '1';
+
+function colourise(style, text) {
+	return coloursEnabled ? `${ANSI_STYLES[style]}${text}${ANSI_STYLES.reset}` : text;
+}
 
 function getDirectories(source) {
 	return readdirSync(source, {withFileTypes: true})
@@ -347,13 +366,13 @@ async function main() {
 		const gzipSizeInBytes = Number.parseInt(await (await exec(`gzip -c ./dist/${directory}/${directory}.js | wc -c`)).stdout.trim());
 		totalSize += gzipSizeInBytes;
 		const paddedFileName = `${directory} `.padEnd(25, '-');
-		const fileSize = chalk.yellow(humanFileSize(gzipSizeInBytes));
+		const fileSize = colourise('yellow', humanFileSize(gzipSizeInBytes));
 		const compactedSize = lodashSizesGzipped[directory] ? lodashSizesGzipped[directory] - gzipSizeInBytes : 0;
 
-		const colour = compactedSize > 0 ? chalk.green : chalk.red;
+		const colour = compactedSize > 0 ? 'green' : 'red';
 		const symbol = compactedSize > 0 ? '-' : '+';
 		const humanSize = humanFileSize(Math.abs(compactedSize));
-		const compactedSizePrintOut = compactedSize ? colour`(${symbol}${humanSize})` : '';
+		const compactedSizePrintOut = compactedSize ? colourise(colour, `(${symbol}${humanSize})`) : '';
 		amountSaved += compactedSize;
 		console.log(
 			paddedFileName,
@@ -363,8 +382,8 @@ async function main() {
 	}
 
 	console.log('-'.padEnd(25, '-'));
-	console.log('Size '.padEnd(25, '-'), chalk.green(humanFileSize(totalSize)));
-	console.log('Size saved versus Lodash '.padEnd(25, '-'), chalk.green(humanFileSize(amountSaved)));
+	console.log('Size '.padEnd(25, '-'), colourise('green', humanFileSize(totalSize)));
+	console.log('Size saved versus Lodash '.padEnd(25, '-'), colourise('green', humanFileSize(amountSaved)));
 }
 
 main();

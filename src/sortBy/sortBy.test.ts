@@ -13,21 +13,17 @@ describe("sortBy", () => {
 
 	describe("function predicate", () => {
 		it("should sort the array", () => {
-			assert.deepStrictEqual(sortBy(users, (user: User) => user.name), [
-				users[1],
-				users[3],
-				users[0],
-				users[2],
-			]);
+			assert.deepStrictEqual(
+				sortBy(users, (user: User) => user.name),
+				[users[1], users[3], users[0], users[2]],
+			);
 		});
 
 		it("should sort the array (numbers)", () => {
-			assert.deepStrictEqual(sortBy(users, (user: User) => user.age), [
-				users[3],
-				users[1],
-				users[2],
-				users[0],
-			]);
+			assert.deepStrictEqual(
+				sortBy(users, (user: User) => user.age),
+				[users[3], users[1], users[2], users[0]],
+			);
 		});
 	});
 

@@ -1,6 +1,6 @@
-import lodash from "lodash";
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
+import lodash from "lodash";
 import dropRight from "#src/dropRight/dropRight";
 
 describe("dropRight", () => {
@@ -13,8 +13,17 @@ describe("dropRight", () => {
 
 	it("should match the lodash implementation", () => {
 		assert.deepStrictEqual(dropRight([1, 2, 3]), lodash.dropRight([1, 2, 3]));
-		assert.deepStrictEqual(dropRight([1, 2, 3], 2), lodash.dropRight([1, 2, 3], 2));
-		assert.deepStrictEqual(dropRight([1, 2, 3], 5), lodash.dropRight([1, 2, 3], 5));
-		assert.deepStrictEqual(dropRight([1, 2, 3], 0), lodash.dropRight([1, 2, 3], 0));
+		assert.deepStrictEqual(
+			dropRight([1, 2, 3], 2),
+			lodash.dropRight([1, 2, 3], 2),
+		);
+		assert.deepStrictEqual(
+			dropRight([1, 2, 3], 5),
+			lodash.dropRight([1, 2, 3], 5),
+		);
+		assert.deepStrictEqual(
+			dropRight([1, 2, 3], 0),
+			lodash.dropRight([1, 2, 3], 0),
+		);
 	});
 });

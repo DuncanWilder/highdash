@@ -22,11 +22,17 @@ describe("some", () => {
 	});
 
 	it("should work for a collection of objects", () => {
-		assert.deepStrictEqual(some(users, (user: User) => user.name === "barney"), true);
+		assert.deepStrictEqual(
+			some(users, (user: User) => user.name === "barney"),
+			true,
+		);
 	});
 
 	it("should handle an object predicate", () => {
-		assert.deepStrictEqual(some(users, { name: "barney", active: false }), false);
+		assert.deepStrictEqual(
+			some(users, { name: "barney", active: false }),
+			false,
+		);
 	});
 
 	it("should handle an string predicate", () => {

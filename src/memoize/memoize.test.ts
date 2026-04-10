@@ -1,6 +1,6 @@
-import lodash from "lodash";
 import assert from "node:assert/strict";
 import { describe, it, mock as testMock } from "node:test";
+import lodash from "lodash";
 import memoize from "#src/memoize/memoize";
 
 describe("memoize", () => {

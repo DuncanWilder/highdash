@@ -19,7 +19,10 @@ describe("differenceWith", () => {
 		const array2: number[] = [];
 		const comparator = (a: number, b: number) => a === b;
 
-		assert.deepStrictEqual(differenceWith(array1, array2, comparator), [1, 2, 3]);
+		assert.deepStrictEqual(
+			differenceWith(array1, array2, comparator),
+			[1, 2, 3],
+		);
 	});
 
 	it("returns an empty array if the first array is empty", () => {

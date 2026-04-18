@@ -36,5 +36,22 @@ describe("sortBy", () => {
 				users[0],
 			]);
 		});
+
+		it("should support sorting by a single property name", () => {
+			assert.deepStrictEqual(sortBy(users, "age"), [
+				users[3],
+				users[1],
+				users[2],
+				users[0],
+			]);
+		});
+	});
+
+	it("should not mutate the original array", () => {
+		const usersCopy = [...users];
+
+		sortBy(users, "age");
+
+		assert.deepStrictEqual(users, usersCopy);
 	});
 });

@@ -1,10 +1,12 @@
-export default function dropRight<PassedArrayType>(
-	array: PassedArrayType[],
+export default function dropRight<ArrayItem>(
+	array: ArrayItem[],
 	numberToDrop = 1,
-): PassedArrayType[] {
-	if (numberToDrop === 0) {
-		return array;
+): ArrayItem[] {
+	const normalizedDropCount = Math.max(Math.floor(numberToDrop), 0);
+
+	if (normalizedDropCount === 0) {
+		return array.slice();
 	}
 
-	return array.slice(0, -numberToDrop);
+	return array.slice(0, -normalizedDropCount);
 }

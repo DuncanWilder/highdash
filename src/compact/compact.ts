@@ -1,5 +1,9 @@
-export default function compact<PassedArrayType>(
-	array: PassedArrayType[],
-): PassedArrayType[] {
-	return array.filter((item) => Boolean(item));
+type FalsyValue = false | 0 | "" | null | undefined;
+
+export default function compact<ArrayItem>(
+	array: ArrayItem[],
+): Array<Exclude<ArrayItem, FalsyValue>> {
+	return array.filter((item): item is Exclude<ArrayItem, FalsyValue> =>
+		Boolean(item),
+	);
 }

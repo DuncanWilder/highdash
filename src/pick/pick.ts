@@ -1,24 +1,25 @@
-export default function pick<PassedItem extends Record<string, unknown>>(
-	target: PassedItem,
-	desiredKeys: string | string[],
-): Partial<PassedItem> {
+export default function pick<
+	ObjectToPickFrom extends Record<string, unknown>,
+	DesiredKey extends keyof ObjectToPickFrom,
+>(
+	target: ObjectToPickFrom,
+	desiredKeys: DesiredKey | DesiredKey[],
+): Partial<Pick<ObjectToPickFrom, DesiredKey>> {
 	const keysToPick = Array.isArray(desiredKeys) ? desiredKeys : [desiredKeys];
-
-	// biome-ignore lint/suspicious/noExplicitAny: Types are hard, any is fine for now
-	const toReturn: any = {};
+	const selectedValues: Partial<Pick<ObjectToPickFrom, DesiredKey>> = {};
 
 	const isValidObject =
 		typeof target === "object" && !Array.isArray(target) && target !== null;
 
 	if (!isValidObject) {
-		return toReturn;
+		return selectedValues;
 	}
 
 	for (const key of keysToPick) {
 		if (key in target) {
-			toReturn[key] = target[key];
+			selectedValues[key] = target[key];
 		}
 	}
 
-	return toReturn;
+	return selectedValues;
 }

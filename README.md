@@ -1,21 +1,52 @@
 # highdash
 
-A lightweight replacement for Lodash
+A small utility library inspired by Lodash
 
 ## Why does this exist?
 
 There are some high level goals for this repo;
 
 * To show that you might not need to import Lodash to achieve your goals
-* More feature complete than [You Don't Need Lodash/Underscore](https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore), and with tests to verify/support
 * A method for me to learn how some of these functions actually work
 * This isn't meant to be a complete replacement for _every_ Lodash function
-* Each function probably isn't designed to cater to every situation that Lodash does ("good enough" rather than "perfect")
+* Each function is intentionally a smaller, easier-to-read subset rather than a full Lodash clone
 * Lodash doesn't treat each function in isolation, this library does for easy copy & pasting
   * Lodash re-uses a lot of functions as helpers or uses it's own collection of helpers, obscuring what the function is actually doing
   * This should mean that each function in this library should be copy-pasteable
   * This is also only achieved if each function is dependency free (even at the cost of duplication of logic)
-* To leverage TypeScript for protection against edge cases, rather than protecting for them in code
+* To use TypeScript to describe the supported inputs clearly, without pretending each function handles every edge case Lodash does
+
+## Project philosophy
+
+This library is not trying to become a line-for-line Lodash replacement.
+
+The bar for each function is:
+
+* You should be able to read the whole implementation quickly and understand how it works
+* The supported behavior should be obvious from the code, tests, and types
+* Correctness bugs in the supported scope should be fixed
+* Complexity should only be added when it pays for itself in readability and confidence
+
+That means:
+
+* Prefer a smaller, explicit feature set over broad Lodash-style compatibility
+* Prefer honest types over very wide overloads that suggest unsupported behavior
+* Prefer tests that document intended behavior over tests that only chase parity
+* Avoid deep helper systems that make individual utilities harder to understand
+* Be explicit about supported shapes when a utility is intentionally narrow, such as `merge` only supporting arrays and plain objects
+
+## TypeScript style
+
+Type parameter names should describe what they represent.
+
+Good examples:
+
+* `ArrayItem`
+* `CollectionItem`
+* `FunctionArguments`
+* `ReturnedValue`
+
+Avoid single-letter names such as `T`, `R`, or `P` when a descriptive name would make the function easier to read.
 
 ## Why no barrel imports?
 

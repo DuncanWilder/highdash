@@ -1,6 +1,8 @@
-export default function flattenDeep<PassedArrayType>(
-	arrayToFlatten: PassedArrayType[],
+export default function flattenDeep<ArrayItem>(
+	arrayToFlatten: ArrayItem[],
 	depth = 1,
-): PassedArrayType[] {
-	return arrayToFlatten.flat(depth) as PassedArrayType[];
+): unknown[] {
+	// Returning unknown[] here on purpose. A precise recursively-flattened type is
+	// possible, but it makes this tiny utility much harder to read.
+	return arrayToFlatten.flat(depth);
 }

@@ -1,47 +1,46 @@
-type CollectionType =
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	Record<string, any> | string | number | null | boolean;
-type PredicateType =
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	| Record<string, any>
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	| ((item: any) => boolean)
+type MatchableObject = Record<string, unknown>;
+type PredicateType<CollectionItem> =
+	| MatchableObject
+	| ((item: CollectionItem) => boolean)
 	| string;
 
-export default function some(
-	collection: CollectionType[],
-	predicate: PredicateType,
+function isMatchableObject(
+	valueToCheck: unknown,
+): valueToCheck is MatchableObject {
+	return typeof valueToCheck === "object" && valueToCheck !== null;
+}
+
+export default function some<CollectionItem>(
+	collection: CollectionItem[],
+	predicate: PredicateType<CollectionItem>,
 ): boolean {
 	if (typeof predicate === "function") {
-		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-		return collection.some(predicate as (item: any) => boolean);
+		return collection.some(predicate);
 	}
 
 	if (typeof predicate === "string") {
-		return collection.some((item) => {
-			if (typeof item !== "object") {
+		return collection.some((collectionItem) => {
+			if (!isMatchableObject(collectionItem)) {
 				return false;
 			}
 
-			return item && Boolean(item[predicate]);
+			return Boolean(collectionItem[predicate]);
 		});
 	}
 
-	if (typeof predicate === "object") {
+	if (isMatchableObject(predicate)) {
 		return collection.some((collectionItem) => {
-			let hasBeenFound = true;
+			if (!isMatchableObject(collectionItem)) {
+				return false;
+			}
 
 			for (const [key, value] of Object.entries(predicate)) {
-				if (
-					typeof collectionItem === "object" &&
-					collectionItem?.[key] !== value
-				) {
-					hasBeenFound = false;
-					break;
+				if (collectionItem[key] !== value) {
+					return false;
 				}
 			}
 
-			return hasBeenFound;
+			return true;
 		});
 	}
 

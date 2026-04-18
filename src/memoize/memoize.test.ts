@@ -39,4 +39,13 @@ describe("memoize", () => {
 		factorial(5);
 		assert.strictEqual(mock.mock.callCount(), 6);
 	});
+
+	it("should cache falsy return values", () => {
+		const mock = testMock.fn((_value: string) => "");
+		const memoized = memoize(mock);
+
+		assert.strictEqual(memoized("a"), "");
+		assert.strictEqual(memoized("a"), "");
+		assert.strictEqual(mock.mock.callCount(), 1);
+	});
 });

@@ -1,22 +1,30 @@
-type PredicateType =
-	| string
-	| (<T>(value: T, index: number, array: T[]) => string)
-	| ((x: number) => number);
+type GroupKey = string | number;
+type GroupByPredicate<CollectionItem> =
+	| ((value: CollectionItem, index: number) => GroupKey)
+	| (keyof CollectionItem & string);
 
-export default function groupBy<T>(array: T[], predicate: PredicateType) {
-	return array.reduce<Record<string, T[]>>((acc, value, index, array) => {
-		if (typeof predicate === "string") {
-			// @ts-expect-error
-			const key = value[predicate];
-			acc[key] = acc[key] || [];
-			acc[key].push(value);
-			return acc;
-		}
+function toPlainGroupedObject<CollectionItem>(
+	groupedItems: Partial<Record<string, CollectionItem[]>>,
+): Record<string, CollectionItem[]> {
+	// Object.groupBy returns a null-prototype object. Spreading it gives callers a
+	// plain object, which is less surprising to inspect and compare in tests.
+	return { ...groupedItems } as Record<string, CollectionItem[]>;
+}
 
-		// @ts-expect-error
-		const key = predicate(value, index, array);
-		acc[key] = acc[key] || [];
-		acc[key].push(value);
-		return acc;
-	}, {});
+export default function groupBy<CollectionItem>(
+	collection: CollectionItem[],
+	predicate: GroupByPredicate<CollectionItem>,
+): Record<string, CollectionItem[]> {
+	if (typeof predicate === "function") {
+		return toPlainGroupedObject(Object.groupBy(collection, predicate));
+	}
+
+	return toPlainGroupedObject(
+		// The string shorthand means "group by this property on each item".
+		// Object.groupBy expects the callback to return a property key, so we read
+		// the property value and coerce it to a string key for the grouped object.
+		Object.groupBy(collection, (item) =>
+			String((item as Record<string, unknown>)[predicate] as string | number),
+		),
+	);
 }

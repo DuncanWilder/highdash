@@ -28,6 +28,11 @@ describe("chunk", () => {
 		assert.strictEqual(result[4].length, 1);
 	});
 
+	it("should return an empty array for chunk sizes smaller than 1", () => {
+		assert.deepStrictEqual(chunk(chunkable, 0), []);
+		assert.deepStrictEqual(chunk(chunkable, -2), []);
+	});
+
 	it("should match the lodash implementation", () => {
 		assert.deepStrictEqual(chunk(chunkable, 5), lodash.chunk(chunkable, 5));
 	});

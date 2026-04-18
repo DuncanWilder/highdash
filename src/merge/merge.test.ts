@@ -19,4 +19,10 @@ describe("merge", () => {
 			],
 		});
 	});
+
+	it("should create missing nested objects while merging", () => {
+		assert.deepStrictEqual(merge({}, { a: { b: 1 } }), {
+			a: { b: 1 },
+		});
+	});
 });

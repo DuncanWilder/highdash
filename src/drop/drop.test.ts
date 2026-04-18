@@ -9,6 +9,7 @@ describe("drop", () => {
 		assert.deepStrictEqual(drop([1, 2, 3], 2), [3]);
 		assert.deepStrictEqual(drop([1, 2, 3], 5), []);
 		assert.deepStrictEqual(drop([1, 2, 3], 0), [1, 2, 3]);
+		assert.deepStrictEqual(drop([1, 2, 3], -1), [1, 2, 3]);
 	});
 
 	it("should match the lodash implementation", () => {
@@ -16,5 +17,6 @@ describe("drop", () => {
 		assert.deepStrictEqual(drop([1, 2, 3], 2), lodash.drop([1, 2, 3], 2));
 		assert.deepStrictEqual(drop([1, 2, 3], 5), lodash.drop([1, 2, 3], 5));
 		assert.deepStrictEqual(drop([1, 2, 3], 0), lodash.drop([1, 2, 3], 0));
+		assert.deepStrictEqual(drop([1, 2, 3], -1), lodash.drop([1, 2, 3], -1));
 	});
 });

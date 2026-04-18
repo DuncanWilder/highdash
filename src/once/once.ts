@@ -1,17 +1,22 @@
-export default function once<ReturnType>(
-	functionToCall: (...onceArguments: unknown[]) => ReturnType,
-): () => ReturnType {
+export default function once<
+	FunctionArguments extends unknown[],
+	ReturnedValue,
+>(
+	functionToCall: (...functionArguments: FunctionArguments) => ReturnedValue,
+): (...functionArguments: FunctionArguments) => ReturnedValue {
 	let hasBeenCalled = false;
-	let result: ReturnType;
+	let returnedValue!: ReturnedValue;
 
-	return function <P>(...functionToCallArguments: P[]) {
+	return function callOnce(
+		this: unknown,
+		...functionArguments: FunctionArguments
+	) {
 		if (hasBeenCalled) {
-			return result;
+			return returnedValue;
 		}
 
-		// @ts-expect-error somerhing
-		result = functionToCall.apply(this, functionToCallArguments);
+		returnedValue = functionToCall.apply(this, functionArguments);
 		hasBeenCalled = true;
-		return result;
+		return returnedValue;
 	};
 }

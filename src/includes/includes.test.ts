@@ -19,7 +19,9 @@ describe("includes", () => {
 		assert.deepStrictEqual(includes("abcd", "bc"), true);
 	});
 
-	// It('should allow us to specify a "fromIndex"', () => {
-	// 	assert.deepStrictEqual(includes([1, 2, 3], 1, 2), false);
-	// });
+	it('should allow us to specify a "fromIndex"', () => {
+		assert.deepStrictEqual(includes([1, 2, 3], 1, 2), false);
+		assert.deepStrictEqual(includes("abcd", "bc", 2), false);
+		assert.deepStrictEqual(includes({ a: 1, b: 2, c: 1 }, 1, 1), true);
+	});
 });

@@ -1,1 +1,1 @@
-export default function noop(...args: unknown[]): void {}
+export default function noop(..._args: unknown[]): void {}

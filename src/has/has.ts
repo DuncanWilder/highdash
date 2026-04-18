@@ -1,18 +1,21 @@
-export default function has<ObjectType>(
-	object: ObjectType,
+export default function has<ObjectToSearch>(
+	object: ObjectToSearch,
 	path: string | string[],
 ): boolean {
 	const searchKeys = typeof path === "string" ? path.split(".") : path;
-
-	// Deep-clone an object to avoid mutation by reference
-	let copiedObject: ObjectType = JSON.parse(
-		JSON.stringify(object),
-	) as ObjectType;
+	let currentValue: unknown = object;
 
 	for (const searchKey of searchKeys) {
-		// @ts-expect-error We're forcing types here to iterate through this object
-		copiedObject = copiedObject ? copiedObject[searchKey] : undefined;
+		if (typeof currentValue !== "object" || currentValue === null) {
+			return false;
+		}
+
+		if (!Object.hasOwn(currentValue, searchKey)) {
+			return false;
+		}
+
+		currentValue = (currentValue as Record<string, unknown>)[searchKey];
 	}
 
-	return copiedObject !== undefined;
+	return true;
 }

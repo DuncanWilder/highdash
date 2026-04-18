@@ -1,11 +1,17 @@
-export default function chunk<PassedArrayType>(
-	array: PassedArrayType[],
+export default function chunk<ArrayItem>(
+	array: ArrayItem[],
 	chunkSize = 10,
-): PassedArrayType[][] {
-	const chunks = [];
+): ArrayItem[][] {
+	const normalizedChunkSize = Math.floor(chunkSize);
 
-	for (let i = 0; i < array.length; i += chunkSize) {
-		chunks.push(array.slice(i, i + chunkSize));
+	if (normalizedChunkSize < 1) {
+		return [];
+	}
+
+	const chunks: ArrayItem[][] = [];
+
+	for (let i = 0; i < array.length; i += normalizedChunkSize) {
+		chunks.push(array.slice(i, i + normalizedChunkSize));
 	}
 
 	return chunks;

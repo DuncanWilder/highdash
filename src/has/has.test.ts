@@ -24,4 +24,12 @@ describe("has", () => {
 	it("should handle a missing dot-notation path", () => {
 		assert.deepStrictEqual(has(object, "a.c"), false);
 	});
+
+	it("should treat undefined properties as existing paths", () => {
+		assert.deepStrictEqual(has({ a: undefined }, "a"), true);
+	});
+
+	it("should support array indexes in explicit path arrays", () => {
+		assert.deepStrictEqual(has({ a: [{ b: 2 }] }, ["a", "0", "b"]), true);
+	});
 });

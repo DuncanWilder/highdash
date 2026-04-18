@@ -1,45 +1,50 @@
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-type CollectionType = Record<string, any>;
+type SortableValue = string | number;
+type SortByPredicate<CollectionItem> =
+	| ((item: CollectionItem) => SortableValue)
+	| (keyof CollectionItem & string)
+	| Array<keyof CollectionItem & string>;
+
+function compareSortValues(
+	leftValue: SortableValue,
+	rightValue: SortableValue,
+): number {
+	if (typeof leftValue === "number" && typeof rightValue === "number") {
+		return leftValue - rightValue;
+	}
+
+	return String(leftValue).localeCompare(String(rightValue));
+}
 
 /**
  * If you are reaching for this function, you probably just want Array.sort
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
-export default function sortBy(
-	collection: CollectionType[],
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	predicate: ((item: any) => string | number) | string[],
-): CollectionType[] | undefined {
-	const clonedArray: CollectionType[] = JSON.parse(JSON.stringify(collection));
+export default function sortBy<CollectionItem extends Record<string, unknown>>(
+	collection: CollectionItem[],
+	predicate: SortByPredicate<CollectionItem>,
+): CollectionItem[] {
+	const sortedCollection = [...collection];
 
 	if (typeof predicate === "function") {
-		clonedArray.sort((a, b) => {
-			const aa = predicate(a);
-			const bb = predicate(b);
-
-			if (typeof aa === "string" && typeof bb === "string") {
-				return aa.localeCompare(bb);
-			}
-
-			// @ts-expect-error at this point they should be numbers
-			return aa - bb;
-		});
-
-		return clonedArray;
+		return sortedCollection.sort((leftItem, rightItem) =>
+			compareSortValues(predicate(leftItem), predicate(rightItem)),
+		);
 	}
 
-	return clonedArray.sort((a, b) =>
-		predicate
-			.map((fieldToSortBy) => {
-				const aa = a[fieldToSortBy];
-				const bb = b[fieldToSortBy];
+	const sortKeys = Array.isArray(predicate) ? predicate : [predicate];
 
-				if (typeof aa === "string" && typeof bb === "string") {
-					return aa.localeCompare(bb);
-				}
+	return sortedCollection.sort((leftItem, rightItem) => {
+		for (const sortKey of sortKeys) {
+			const comparisonResult = compareSortValues(
+				leftItem[sortKey] as SortableValue,
+				rightItem[sortKey] as SortableValue,
+			);
 
-				return aa - bb;
-			})
-			.reduce((p, n) => (p ? p : n), 0),
-	);
+			if (comparisonResult !== 0) {
+				return comparisonResult;
+			}
+		}
+
+		return 0;
+	});
 }

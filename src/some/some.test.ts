@@ -38,4 +38,8 @@ describe("some", () => {
 	it("should handle an string predicate", () => {
 		assert.deepStrictEqual(some(users, "active"), true);
 	});
+
+	it("should return false when using an object predicate against primitives", () => {
+		assert.deepStrictEqual(some([1, 2, 3], { active: true }), false);
+	});
 });

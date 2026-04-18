@@ -1,15 +1,20 @@
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export default function memoize<R, T extends (...args: any[]) => R>(f: T): T {
-	const memory = new Map<string, R>();
+export default function memoize<
+	FunctionArguments extends unknown[],
+	ReturnedValue,
+>(
+	functionToMemoize: (...functionArguments: FunctionArguments) => ReturnedValue,
+): (...functionArguments: FunctionArguments) => ReturnedValue {
+	const memoizedValues = new Map<string, ReturnedValue>();
 
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const g = (...args: any[]) => {
-		if (!memory.get(args.join())) {
-			memory.set(args.join(), f(...args));
+	return (...functionArguments: FunctionArguments) => {
+		const cacheKey = JSON.stringify(functionArguments);
+
+		if (memoizedValues.has(cacheKey)) {
+			return memoizedValues.get(cacheKey) as ReturnedValue;
 		}
 
-		return memory.get(args.join());
+		const returnedValue = functionToMemoize(...functionArguments);
+		memoizedValues.set(cacheKey, returnedValue);
+		return returnedValue;
 	};
-
-	return g as T;
 }

@@ -1,6 +1,8 @@
-export default function drop<PassedArrayType>(
-	array: PassedArrayType[],
+export default function drop<ArrayItem>(
+	array: ArrayItem[],
 	numberToDrop = 1,
-): PassedArrayType[] {
-	return array.slice(numberToDrop);
+): ArrayItem[] {
+	const normalizedDropCount = Math.max(Math.floor(numberToDrop), 0);
+
+	return array.slice(normalizedDropCount);
 }

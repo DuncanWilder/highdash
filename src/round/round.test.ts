@@ -11,7 +11,7 @@ describe("round", () => {
 		assert.deepStrictEqual(round(4.006, 2), 4.01);
 	});
 
-	it.todo("should allow negative rounding");
-	// _.round(4060, -2);
-	// // => 4100
+	it("should allow negative rounding", () => {
+		assert.deepStrictEqual(round(4060, -2), 4100);
+	});
 });

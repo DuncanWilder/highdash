@@ -32,4 +32,8 @@ describe("has", () => {
 	it("should support array indexes in explicit path arrays", () => {
 		assert.deepStrictEqual(has({ a: [{ b: 2 }] }, ["a", "0", "b"]), true);
 	});
+
+	it("should stop when an intermediate value is null", () => {
+		assert.deepStrictEqual(has({ a: null }, "a.b"), false);
+	});
 });

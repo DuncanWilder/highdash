@@ -54,4 +54,13 @@ describe("sortBy", () => {
 
 		assert.deepStrictEqual(users, usersCopy);
 	});
+
+	it("should keep items in place when all sort keys are equal", () => {
+		const tiedUsers: User[] = [
+			{ name: "barney", age: 36 },
+			{ name: "barney", age: 36 },
+		];
+
+		assert.deepStrictEqual(sortBy(tiedUsers, ["name", "age"]), tiedUsers);
+	});
 });

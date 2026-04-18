@@ -42,4 +42,16 @@ describe("some", () => {
 	it("should return false when using an object predicate against primitives", () => {
 		assert.deepStrictEqual(some([1, 2, 3], { active: true }), false);
 	});
+
+	it("should return true when every object predicate key matches", () => {
+		assert.deepStrictEqual(some(users, { name: "barney", active: true }), true);
+	});
+
+	it("should return false when using a string predicate against primitives", () => {
+		assert.deepStrictEqual(some([1, 2, 3], "active"), false);
+	});
+
+	it("should return false for unsupported predicate values", () => {
+		assert.deepStrictEqual(some([1, 2, 3], 1 as never), false);
+	});
 });

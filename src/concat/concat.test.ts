@@ -10,4 +10,8 @@ describe("concat", () => {
 		assert.deepStrictEqual(result, [1, 2, 3]);
 		assert.deepStrictEqual(array, [1]);
 	});
+
+	it("should allow the first value to be a single item", () => {
+		assert.deepStrictEqual(concat(1, 2, [3]), [1, 2, 3]);
+	});
 });

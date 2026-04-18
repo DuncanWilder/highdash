@@ -25,4 +25,16 @@ describe("merge", () => {
 			a: { b: 1 },
 		});
 	});
+
+	it("should replace primitive targets when the source becomes nested", () => {
+		assert.deepStrictEqual(merge({ a: 1 }, { a: { b: 2 } }), {
+			a: { b: 2 },
+		});
+	});
+
+	it("should create arrays when an array source is merged into a non-array target", () => {
+		assert.deepStrictEqual(merge({ a: {} }, { a: [1, 2] }), {
+			a: [1, 2],
+		});
+	});
 });

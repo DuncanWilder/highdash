@@ -69,23 +69,23 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Array) _.dropRightWhile | ❌ |
 | (Array) _.dropWhile | ❌ |
 | (Array) _.fill | ❌ |
-| (Array) _.findIndex | ❌ |
+| (Array) _.findIndex | [/src/findIndex/findIndex.ts](src/findIndex/findIndex.ts) |
 | (Array) _.findLastIndex | ❌ |
-| (Array) _.first -> head | ❌ |
+| (Array) _.first -> head | [/src/head/head.ts](src/head/head.ts) |
 | (Array) _.flatten | [/src/flatten/flatten.ts](src/flatten/flatten.ts) |
 | (Array) _.flattenDeep | [/src/flattenDeep/flattenDeep.ts](src/flattenDeep/flattenDeep.ts) |
 | (Array) _.flattenDepth | [/src/flattenDepth/flattenDepth.ts](src/flattenDepth/flattenDepth.ts) |
 | (Array) _.fromPairs | ❌ |
-| (Array) _.head | ❌ |
-| (Array) _.indexOf | ❌ |
+| (Array) _.head | [/src/head/head.ts](src/head/head.ts) |
+| (Array) _.indexOf | [/src/indexOf/indexOf.ts](src/indexOf/indexOf.ts) |
 | (Array) _.initial | ❌ |
 | (Array) _.intersection | ❌ |
 | (Array) _.intersectionBy | ❌ |
 | (Array) _.intersectionWith | ❌ |
 | (Array) _.join | ❌ |
-| (Array) _.last | ❌ |
+| (Array) _.last | [/src/last/last.ts](src/last/last.ts) |
 | (Array) _.lastIndexOf | ❌ |
-| (Array) _.nth | ❌ |
+| (Array) _.nth | [/src/nth/nth.ts](src/nth/nth.ts) |
 | (Array) _.pull | ❌ |
 | (Array) _.pullAll | ❌ |
 | (Array) _.pullAllBy | ❌ |
@@ -102,9 +102,9 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Array) _.sortedLastIndexOf | ❌ |
 | (Array) _.sortedUniq | ❌ |
 | (Array) _.sortedUniqBy | ❌ |
-| (Array) _.tail | ❌ |
-| (Array) _.take | ❌ |
-| (Array) _.takeRight | ❌ |
+| (Array) _.tail | [/src/tail/tail.ts](src/tail/tail.ts) |
+| (Array) _.take | [/src/take/take.ts](src/take/take.ts) |
+| (Array) _.takeRight | [/src/takeRight/takeRight.ts](src/takeRight/takeRight.ts) |
 | (Array) _.takeRightWhile | ❌ |
 | (Array) _.takeWhile | ❌ |
 | (Array) _.union | ❌ |
@@ -126,9 +126,9 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Collection) _.countBy | ❌ |
 | (Collection) _.each -> forEach | ❌ |
 | (Collection) _.eachRight -> forEachRight | ❌ |
-| (Collection) _.every | ❌ |
-| (Collection) _.filter | ❌ |
-| (Collection) _.find | ❌ |
+| (Collection) _.every | [/src/every/every.ts](src/every/every.ts) |
+| (Collection) _.filter | [/src/filter/filter.ts](src/filter/filter.ts) |
+| (Collection) _.find | [/src/find/find.ts](src/find/find.ts) |
 | (Collection) _.findLast | ❌ |
 | (Collection) _.flatMap | ❌ |
 | (Collection) _.flatMapDeep | ❌ |
@@ -139,7 +139,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Collection) _.includes | [/src/includes/includes.ts](/src/includes/includes.ts) |
 | (Collection) _.invokeMap | ❌ |
 | (Collection) _.keyBy | ❌ |
-| (Collection) _.map | ❌ |
+| (Collection) _.map | [/src/map/map.ts](src/map/map.ts) |
 | (Collection) _.orderBy | ❌ |
 | (Collection) _.partition | ❌ |
 | (Collection) _.reduce | ❌ |
@@ -148,7 +148,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Collection) _.sample | ❌ |
 | (Collection) _.sampleSize | ❌ |
 | (Collection) _.shuffle | ❌ |
-| (Collection) _.size | ❌ |
+| (Collection) _.size | [/src/size/size.ts](src/size/size.ts) |
 | (Collection) _.some | [/src/some/some.ts](/src/some/some.ts) |
 | (Collection) _.sortBy | [/src/sortBy/sortBy.ts](/src/sortBy/sortBy.ts) |
 | (Date) _.now | ❌ |
@@ -275,7 +275,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Object) _.invert | ❌ |
 | (Object) _.invertBy | ❌ |
 | (Object) _.invoke | ❌ |
-| (Object) _.keys | ❌ |
+| (Object) _.keys | [/src/keys/keys.ts](src/keys/keys.ts) |
 | (Object) _.keysIn | ❌ |
 | (Object) _.mapKeys | ❌ |
 | (Object) _.mapValues | ❌ |
@@ -294,7 +294,7 @@ In practise, removing barrel imports halved the run time of tests at my company 
 | (Object) _.unset | ❌ |
 | (Object) _.update | ❌ |
 | (Object) _.updateWith | ❌ |
-| (Object) _.values | ❌ |
+| (Object) _.values | [/src/values/values.ts](src/values/values.ts) |
 | (Object) _.valuesIn | ❌ |
 | (String) _.camelCase | [/src/camelCase/camelCase.ts](/src/camelCase/camelCase.ts) |
 | (String) _.capitalize | ❌ |
